@@ -5,22 +5,23 @@ body {
   align-items: center;
   height: 100vh;
   margin: 0;
-  background-color: #f0f0f0;
+  background-color: #2B2B2B;
 }
 
 .container {
   text-align: center;
   padding: 20px;
   border-radius: 10px;
-  background-color: #fff;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  background-color: #2B2B2B;
+  box-shadow: 0 0 10px hsla(0, 0%, 100%, 0.957);
 }
 
 h1 {
   margin-bottom: 20px;
+  color: white;
 }
 
 #days {
   font-size: 1.5em;
-  color: #333;
+  color: rgba(255, 255, 255, 0.711);
 }
