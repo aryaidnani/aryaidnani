@@ -1,11 +1,26 @@
-body{
-  background-color: #263032;
-}
-
-
-#loader{
-  height: 100vh;
+body {
+  font-family: Arial, sans-serif;
   display: flex;
   justify-content: center;
   align-items: center;
+  height: 100vh;
+  margin: 0;
+  background-color: #f0f0f0;
+}
+
+.container {
+  text-align: center;
+  padding: 20px;
+  border-radius: 10px;
+  background-color: #fff;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+  margin-bottom: 20px;
+}
+
+#days {
+  font-size: 1.5em;
+  color: #333;
 }
