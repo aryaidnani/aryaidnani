@@ -13,7 +13,7 @@ body {
   padding: 20px;
   border-radius: 10px;
   background-color: #2B2B2B;
-  box-shadow: 0 0 10px hsla(0, 0%, 100%, 0.957);
+  filter: drop-shadow(1px 1px 20px white); 
 }
 
 h1 {
