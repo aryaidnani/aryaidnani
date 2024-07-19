@@ -23,6 +23,10 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 });
 
-function redirectToPage() {
+function redirectToPage1() {
   window.location.href = "progress.html";
+}
+
+function redirectToPage2() {
+  window.location.href = "index.html";
 }

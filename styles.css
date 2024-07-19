@@ -45,3 +45,8 @@ h1 {
 .redirect-button:hover {
   background-color: #383737;
 }
+
+#return-button {
+  position: fixed;
+  bottom: 0;
+}
