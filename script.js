@@ -3,7 +3,7 @@ document.addEventListener("DOMContentLoaded", () => {
     .then((response) => response.json())
     .then((data) => {
       const currentDate = new Date(data.datetime);
-      const targetDate = new Date(currentDate.getFullYear(), 9, 26); // September is the 8th month (0-indexed)
+      const targetDate = new Date(currentDate.getFullYear(), 9, 26);
 
       if (currentDate > targetDate) {
         targetDate.setFullYear(currentDate.getFullYear() + 1);
