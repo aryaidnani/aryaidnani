@@ -3,7 +3,7 @@ document.addEventListener("DOMContentLoaded", () => {
     .then((response) => response.json())
     .then((data) => {
       const currentDate = new Date(data.datetime);
-      const targetDate = new Date(currentDate.getFullYear(), 8, 1); // September is the 8th month (0-indexed)
+      const targetDate = new Date(currentDate.getFullYear(), 9, 26); // September is the 8th month (0-indexed)
 
       if (currentDate > targetDate) {
         targetDate.setFullYear(currentDate.getFullYear() + 1);
@@ -14,7 +14,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
       document.getElementById(
         "days"
-      ).textContent = `${daysDiff} day(s) until September 1st`;
+      ).textContent = `${daysDiff} day(s) until October 26th`;
     })
     .catch((error) => {
       console.error("Error fetching the date:", error);
