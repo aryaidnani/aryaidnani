@@ -58,3 +58,15 @@ p {
   letter-spacing: 0.5px;
   line-height: 30px;
 }
+
+.content,
+h4 {
+  display: inline;
+}
+
+h4 {
+  font-style: italic;
+  font-size: 0.8em;
+  float: right;
+  height: 3px;
+}
