@@ -57,10 +57,6 @@ h1 {
 p {
   letter-spacing: 0.5px;
   line-height: 30px;
-}
-
-.content,
-h4 {
   display: inline;
 }
 
