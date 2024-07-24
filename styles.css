@@ -54,7 +54,7 @@ h1 {
   bottom: 0;
 }
 
-p {
+.log p {
   letter-spacing: 0.5px;
   line-height: 30px;
   display: inline;
