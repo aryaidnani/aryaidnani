@@ -24,9 +24,9 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 function redirectToPage1() {
-  window.location.href = "progress.html";
+  window.location.href = "https://aryaidnani.in/progress.html";
 }
 
 function redirectToPage2() {
-  window.location.href = "index.html";
+  window.location.href = "https://aryaidnani.in/";
 }
