@@ -35,4 +35,7 @@ document.querySelector(".about-link").addEventListener("click", function () {
 document,
   querySelector(".icon").addEventListener("click", function () {
     document.querySelector(".container").classList.remove("hidden");
+    if (!document.querySelector(".container").classList.contains("hidden")) {
+      document.querySelector(".container").classList.add("hidden");
+    }
   });
