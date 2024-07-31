@@ -47,7 +47,8 @@ li {
 
 a:link,
 a:visited,
-.about-link {
+.about-link,
+.blog-link {
   text-decoration: none;
   color: #ffffffb5;
   transition: 600ms;

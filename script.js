@@ -26,16 +26,3 @@ document.addEventListener("DOMContentLoaded", () => {
 function redirectToPage() {
   window.location.href = "index.html";
 }
-
-document.querySelector(".about-link").addEventListener("click", function () {
-  document.querySelector(".container").classList.toggle("hidden");
-  document.querySelector(".about-section").classList.toggle("hidden");
-});
-
-document,
-  querySelector(".icon").addEventListener("click", function () {
-    document.querySelector(".container").classList.remove("hidden");
-    if (!document.querySelector(".container").classList.contains("hidden")) {
-      document.querySelector(".container").classList.add("hidden");
-    }
-  });
