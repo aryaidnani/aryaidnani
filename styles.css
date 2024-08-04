@@ -2,10 +2,6 @@
 
 body {
   font-family: Arial, sans-serif;
-  /* display: flex;
-  justify-content: center;
-  align-items: center; */
-
   display: grid;
   grid-template-columns: 1fr 600px 1fr;
   align-items: center;
@@ -13,6 +9,14 @@ body {
   height: 100vh;
   margin: 0;
   background-color: #2b2b2b;
+}
+
+::-webkit-scrollbar {
+  background-color: transparent;
+}
+
+.progress {
+  grid-template-columns: repeat(5, 1fr);
 }
 
 nav {
@@ -61,7 +65,7 @@ a:hover {
   transition: 600ms;
 }
 
-.progress {
+.progress-nav {
   background-color: #2b2b2b;
 }
 
@@ -87,36 +91,7 @@ h1 {
 
 .log {
   color: white;
-  overflow: auto;
-  height: 100vh;
-  grid-column: 1/-1;
-}
-
-.redirect-button {
-  padding: 10px 20px;
-  font-size: 16px;
-  color: #fff;
-  background-color: #2b2b2b;
-  border: 1.2px solid rgba(255, 255, 255, 0);
-  border-radius: 20px;
-  cursor: pointer;
-  transition: 590ms;
-}
-
-.redirect-button:hover {
-  background-color: #383737;
-  border: 1.2px solid rgba(255, 255, 255, 0.578);
-  transition: 590ms;
-}
-
-#return-button {
-  position: fixed;
-  bottom: 0;
-}
-
-#return-button2 {
-  display: flex;
-  justify-content: center;
+  grid-column: 2/5;
 }
 
 .log p {
