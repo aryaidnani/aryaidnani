@@ -194,10 +194,13 @@ strong {
 /* ********************************************************** */
 
 @media (max-width: 600px) {
-  body,
+  body {
+    width: 100%;
+  }
+
   .accordion,
   .about-section {
-    width: 100%;
+    width: 80%;
   }
 
   nav h1 {
