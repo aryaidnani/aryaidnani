@@ -192,3 +192,19 @@ strong {
 }
 
 /* ********************************************************** */
+
+@media (max-width: 600px) {
+  body,
+  .accordion,
+  .about-section {
+    width: 100%;
+  }
+
+  nav h1 {
+    font-size: 22px;
+  }
+
+  nav a {
+    font-size: 14px;
+  }
+}
