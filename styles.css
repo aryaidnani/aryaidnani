@@ -233,3 +233,25 @@ strong {
     width: 83.33%;
   }
 }
+
+@media (max-width: 1024px) {
+  .about-section {
+    width: 70%;
+    font-size: 18px;
+  }
+}
+
+@media (max-width: 768px) {
+  .about-section {
+    width: 90%;
+    font-size: 16px;
+  }
+}
+
+@media (max-width: 480px) {
+  .about-section {
+    width: 100%;
+    font-size: 14px;
+    padding: 10px;
+  }
+}
