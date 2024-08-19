@@ -73,6 +73,10 @@ a:hover {
   filter: drop-shadow(1px 1px 20px white);
 }
 
+#days sup {
+  line-height: 0;
+}
+
 .container h1 {
   margin-bottom: 20px;
   color: white;
