@@ -1,50 +1,50 @@
-// document.addEventListener("DOMContentLoaded", () => {
-//   fetch("https://worldtimeapi.org/api/ip")
-//     .then((response) => response.json())
-//     .then((data) => {
-//       const currentDate = new Date(data.datetime);
-//       const targetDate = new Date(currentDate.getFullYear(), 9, 26);
-
-//       if (currentDate > targetDate) {
-//         targetDate.setFullYear(currentDate.getFullYear() + 1);
-//       }
-
-//       const timeDiff = targetDate - currentDate;
-//       const daysDiff = Math.ceil(timeDiff / (1000 * 60 * 60 * 24));
-
-//       document.getElementById(
-//         "days"
-//       ).textContent = `${daysDiff} day(s) until October 26th`;
-//     })
-//     .catch((error) => {
-//       console.error("Error fetching the date:", error);
-//       document.getElementById("days").textContent =
-//         "Unable to fetch the current date.";
-//     });
-// });
-
-// function redirectToPage() {
-//   window.location.href = "index.html";
-// }
-
-// ALTERNATIVE TO API METHOD
-
-const currentDate = new Date();
-
-const today = new Date(
-  currentDate.getFullYear(),
-  currentDate.getMonth(),
-  currentDate.getDate()
-);
-
+let currentDate = new Date();
 const targetDate = new Date(currentDate.getFullYear(), 9, 26);
 
-const daysLeft =
-  Math.trunc((targetDate - currentDate) / (1000 * 60 * 60 * 24)) + 1;
+if (currentDate > targetDate) {
+  targetDate.setFullYear(targetDate.getFullYear() + 1);
+}
 
-// document.getElementById(
-//   "days"
-// ).textContent = `${daysLeft} day(s) until October 26th`;
+const daysLeft = Math.ceil((targetDate - currentDate) / (1000 * 60 * 60 * 24));
 
-document.getElementById("days").innerHTML =
+document.querySelector(".days").innerHTML =
   daysLeft + " day(s) until October 26<sup>th</sup>";
+
+function webTime() {
+  currentDate = new Date();
+
+  let timeDiffDays = Math.ceil(
+    (targetDate - currentDate) / (1000 * 24 * 60 * 60)
+  );
+
+  document.querySelector(".days-det").textContent =
+    timeDiffDays < 10 ? "0" + timeDiffDays : timeDiffDays;
+
+  let timeDiffSeconds = targetDate.getSeconds() - currentDate.getSeconds();
+  document.querySelector(".seconds").textContent =
+    60 + timeDiffSeconds < 10
+      ? "0" + (60 + timeDiffSeconds)
+      : 60 + timeDiffSeconds;
+
+  let timeDiffMinutes = targetDate.getMinutes() - currentDate.getMinutes();
+  document.querySelector(".minutes").textContent =
+    60 + timeDiffMinutes < 10
+      ? "0" + (60 + timeDiffMinutes)
+      : 60 + timeDiffMinutes;
+
+  let timeDiffHours = targetDate.getHours() - currentDate.getHours();
+  document.querySelector(".hours").textContent =
+    24 + timeDiffHours < 10 ? "0" + (24 + timeDiffHours) : 24 + timeDiffHours;
+}
+
+setInterval(webTime, 1000);
+
+document.querySelector(".container").addEventListener("mouseenter", () => {
+  document.querySelector(".days").classList.toggle("hidden");
+  document.querySelector(".detailed").classList.toggle("hidden");
+});
+
+document.querySelector(".container").addEventListener("mouseleave", () => {
+  document.querySelector(".days").classList.toggle("hidden");
+  document.querySelector(".detailed").classList.toggle("hidden");
+});
