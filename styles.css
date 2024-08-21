@@ -156,7 +156,7 @@ h4 {
   grid-column: 1/2;
 }
 
-.date-number sup {
+sup {
   line-height: 0;
 }
 
