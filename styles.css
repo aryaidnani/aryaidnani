@@ -160,7 +160,7 @@ h4 {
   line-height: 0;
 }
 
-.down-arrow {
+.icon {
   grid-column: 3/4;
   width: 25px;
   height: 25px;
@@ -173,6 +173,8 @@ h4 {
   grid-template-columns: auto 1fr auto;
   row-gap: 20px;
   cursor: pointer;
+  /* user-select: none; */
+  user-select: none;
 }
 
 .blog-footer {
