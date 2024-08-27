@@ -1,6 +1,8 @@
 let currentDate = new Date();
 const targetDate = new Date(currentDate.getFullYear(), 9, 26);
 
+const progressItem = document.querySelector(".progress-bar");
+
 if (currentDate > targetDate) {
   targetDate.setFullYear(targetDate.getFullYear() + 1);
 }
@@ -35,6 +37,8 @@ function webTime() {
   let timeDiffHours = targetDate.getHours() - currentDate.getHours();
   document.querySelector(".hours").textContent =
     24 + timeDiffHours < 10 ? "0" + (24 + timeDiffHours) : 24 + timeDiffHours;
+
+  progressItem.value = 100 - timeDiffDays;
 }
 
 setInterval(webTime, 1000);
@@ -42,9 +46,11 @@ setInterval(webTime, 1000);
 document.querySelector(".container").addEventListener("mouseenter", () => {
   document.querySelector(".days").classList.toggle("hidden");
   document.querySelector(".detailed").classList.toggle("hidden");
+  progressItem.classList.toggle("hidden");
 });
 
 document.querySelector(".container").addEventListener("mouseleave", () => {
   document.querySelector(".days").classList.toggle("hidden");
   document.querySelector(".detailed").classList.toggle("hidden");
+  progressItem.classList.toggle("hidden");
 });
