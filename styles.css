@@ -26,11 +26,12 @@ nav {
 }
 
 nav h1 {
-  margin-left: 30px;
+  margin-left: 36px;
   font-family: "Noto Serif JP", serif;
 }
 
 ul {
+  /* margin: 0 0; */
   display: flex;
   list-style-type: none;
   letter-spacing: 2px;
@@ -43,7 +44,8 @@ li {
 a:link,
 a:visited,
 .about-link,
-.blog-link {
+.blog-link,
+.sort-btn {
   text-decoration: none;
   color: #ffffffb5;
   transition: 600ms;
@@ -197,6 +199,10 @@ sup {
   display: block;
 }
 
+.progress {
+  position: relative;
+}
+
 /* ********************************************************** */
 
 /* About Section */
@@ -277,5 +283,25 @@ strong {
     width: 100%;
     font-size: 14px;
     padding: 10px;
+  }
+}
+
+@media (max-width: 409px) {
+  nav h1 {
+    font-size: 22px;
+  }
+
+  nav li {
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 400px) {
+  nav h1 {
+    font-size: 20px;
+  }
+
+  nav li {
+    font-size: 12px;
   }
 }
