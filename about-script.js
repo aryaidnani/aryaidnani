@@ -1073,6 +1073,16 @@ const blogs = [
               For reference I started my work at 11am in the morning and got done at 8pm in the evening. So I worked on this for the entire day (I obviously took short breaks in the middle) and have been able to do it. In order to do this I had to introduce dynamic doms which created html elements themselves each time the page is loaded. In lay-man's terms, I moved from a hard-coded html approach to a more DRY principle oriented (do not repeat yourself) approach. This includes creating a basic skeleton of the html element, having it fetch data from an array (which stores the blog data) and then create elements by looping over itself and the array. Again this was only one part of the puzzle, which merely stored data in a different way, the other part was to sort it. Somehow I was able to figure this one out as well and I had everything done by 4pm.<br><br> I was happy to pull this off except my happiness was short lived, why? Because everytime you sorted the elements, it affected their functionality and made the accordions unusable. The next 4 hours were spent figuring out how to fix this. I knew that it was a rendering issue so I tried all permutations and combinations of restructuring my code but couldn't come up with a solution. The key was storing all of the accordion functionality in the render function, not by itself but wrapped in a function which gets called each time you render. This is done so that functionality of the accordions is restored everytime you sort the elements which obviously have to get rendered after that in order for the changes to be shown.<br><br> I know I have delved into unnecessary detail, but I stuck to doing my work all day long, and by the end of the day I managed to figure it out. This makes me extremely proud and hopeful of the fact that this field is meant for me, and I for it.
             </p>`,
   },
+
+  {
+    id: 45,
+    dateStr: `1<sup>st</sup>September '24`,
+    content: `<p>
+              Today is a big day for me. Not because it's my 18<sup>th</sup> birthday, not because I got my learners license, not because it is also Carlos Sainz's birthday. But because today marks the 45<sup>th</sup> day of my 100 days of code. 45 days of consistency, dicipline and results which have built and overtime improved this website. I'm really thankful to everyone who followed my instagram story link to land up on this page. This page isn't a flex of basic skills, but is a testament of my consistency and devotion to coding. I can't even comprehend overseeing all this when I first built the website. Today I'll be learning maps, sets and string operations in Javascript and that should take most of my time.
+              <br><br>
+              Usually I blog after I've finished coding for the day, but I wanted people to read this and I wanted to thank you for taking out time to follow a nerd's story. I blog on this website daily about my progress and ocassionally roll out sizeable features. All I ask from you is your feedback and critisism. You can leave the rest to me, because this is my calling, is becoming my identity and is something I am deeply satisfied and proud about.<br><br> Here's to turning 18 and 55 more days of consistency. 
+            </p>`,
+  },
 ];
 
 //Rendering Function to implement dynamic doms
