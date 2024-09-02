@@ -52,6 +52,14 @@ a:visited,
   cursor: pointer;
 }
 
+.sort-btn {
+  position: absolute;
+}
+
+.blog-links {
+  margin-right: 55.5px;
+}
+
 a:hover {
   color: white;
   text-decoration: underline;

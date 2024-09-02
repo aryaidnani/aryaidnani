@@ -1083,6 +1083,14 @@ const blogs = [
               Usually I blog after I've finished coding for the day, but I wanted people to read this and I wanted to thank you for taking out time to follow a nerd's story. I blog on this website daily about my progress and ocassionally roll out sizeable features. All I ask from you is your feedback and critisism. You can leave the rest to me, because this is my calling, is becoming my identity and is something I am deeply satisfied and proud about.<br><br> Here's to turning 18 and 55 more days of consistency. 
             </p>`,
   },
+
+  {
+    id: 46,
+    dateStr: `2<sup>nd</sup>September '24`,
+    content: `<p>
+              Not too happy with today's progress other than the fact that I got away with the bare minimum. I did some maps in Javascript, like iterating through them, various ways to set values to them and also how to leverage keys of different data types. I wanted to do more but for some reason couldn't. I also fixed a bug related to the sorting feature. This was more of a visual one than a functional one. So because the words 'Oldest' and 'Latest' have different number of characters, each time someone clicked them, it would shift the nav elements to either side. I fixed this using absolute positioning and was somehow able to do it with relative ease. I will definitely work harder tomorrow and try not to have dry days like today.
+            </p>`,
+  },
 ];
 
 //Rendering Function to implement dynamic doms
