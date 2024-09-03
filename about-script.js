@@ -1091,6 +1091,14 @@ const blogs = [
               Not too happy with today's progress other than the fact that I got away with the bare minimum. I did some maps in Javascript, like iterating through them, various ways to set values to them and also how to leverage keys of different data types. I wanted to do more but for some reason couldn't. I also fixed a bug related to the sorting feature. This was more of a visual one than a functional one. So because the words 'Oldest' and 'Latest' have different number of characters, each time someone clicked them, it would shift the nav elements to either side. I fixed this using absolute positioning and was somehow able to do it with relative ease. I will definitely work harder tomorrow and try not to have dry days like today.
             </p>`,
   },
+
+  {
+    id: 47,
+    dateStr: `3<sup>rd</sup>September '24`,
+    content: `<p>
+              Compared to the past few days, todays day was much more productive. I was able to sit at my desk in front of my laptop and do Javascript for over 2 hours which meets my daily goal. Didn't code much other than learning, but today I learnt about when and how to use various data types like maps, objects, arrays, sets etc. Other than that I learnt about strings today and how important they are. Strings are one of the most basic primitive data types not just in Javascript but in all of programming. We thereby sometimes take them for granted and forget their importance, an importance I learnt today. This was particularly fun because I learnt how to mask card numbers, the kind which mask your card details and only show the last 4 digits. This was a cool application and I could've never imagined it came from a string method. Other than learning I also figured that the change I introduced in yesterday's css wasn't ideal. This is because it uses a hardcoded pixel value which makes the margin of links different on different devices. Again this can be fixed easily and I will do this tomorrow using a percentage value, however now I have started to understand the importance of an external css library. I am yet to come across the need of an external library in Javascript however am feeling the need for it in css badly. Once I am satisfied with my Javascript progress I will take out time to start learning bootstrap which should be pretty helpful. Anyways that was a little about today and was a decent day.
+            </p>`,
+  },
 ];
 
 //Rendering Function to implement dynamic doms
