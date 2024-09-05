@@ -1111,6 +1111,14 @@ const blogs = [
               Priyansh if you've read my blog this far, I'm really really thankful for your genuine and raw advice. I told you I'm not buttering you up and then I wrote this blog which sums up our conversation. Am I a hypocrite? I'm trying not to be. Am I honest, this is what I try my best to be. So thank you once again, and I hope you ace the events you're organizing in college.
             </p>`,
   },
+
+  {
+    id: 49,
+    dateStr: `5<sup>th</sup>September '24`,
+    content: `<p>
+              Another decently productive day. Today I covered more about functions in Javascript and mainly on how we can modify the "this" keyword as per our need. Basically whenever we call a function (method) from an object and that object uses the "this" keyword, the functionality of the "this" keyword can get disturbed if the function is being assigned to another variable or is being used as a callback function. This issue is resolved by using 3 methods called, Apply, Call and Bind. These methods help us basically hardcode what the "this" keyword points to and make it possible to assign such functions as callbacks or variables. They also help us hardcode some arguments in case they are repititive, and thereby improve the abstraction of the code (I hope thats the correct way to put it). Other than I used these methods on objects, their methods and was able to gain some confidence in using them. In doing so I also gained confidence using "String Methods" which were not difficult, but many in number. Tomorrow as I'm having my C programming class, I will try reading a bit about it and hopefully be able to execute code for the questions assigned to me.
+            </p>`,
+  },
 ];
 
 //Rendering Function to implement dynamic doms
