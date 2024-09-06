@@ -1119,6 +1119,14 @@ const blogs = [
               Another decently productive day. Today I covered more about functions in Javascript and mainly on how we can modify the "this" keyword as per our need. Basically whenever we call a function (method) from an object and that object uses the "this" keyword, the functionality of the "this" keyword can get disturbed if the function is being assigned to another variable or is being used as a callback function. This issue is resolved by using 3 methods called, Apply, Call and Bind. These methods help us basically hardcode what the "this" keyword points to and make it possible to assign such functions as callbacks or variables. They also help us hardcode some arguments in case they are repititive, and thereby improve the abstraction of the code (I hope thats the correct way to put it). Other than I used these methods on objects, their methods and was able to gain some confidence in using them. In doing so I also gained confidence using "String Methods" which were not difficult, but many in number. Tomorrow as I'm having my C programming class, I will try reading a bit about it and hopefully be able to execute code for the questions assigned to me.
             </p>`,
   },
+
+  {
+    id: 50,
+    dateStr: `6<sup>th</sup>September '24`,
+    content: `<p>
+              Today's day 50. Day 50 of 100 means I am at the halfway point of my challenge, and what better way to highlight this day than a class on C programming. This lecture was taken by our pricipal who took it last week as well. This was a noteworthy class because I was able to answer the pricipals questions correctly, point out errors in code and complete not just the 3 assignments assigned to me, but another 2 just in time! So this was an extremely productive programming class. Well I couldn't code much at home as I was occupied with preparations for ganpati, but have managed to chock out an hour in which I will be experimenting with "Immediately Invoked Functions" and "Closures" in javascript. So an okay-ish day, and heres to making the remaining half of the challenge just as memorable if not more.
+            </p>`,
+  },
 ];
 
 //Rendering Function to implement dynamic doms
