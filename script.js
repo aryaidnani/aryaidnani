@@ -54,3 +54,8 @@ document.querySelector(".container").addEventListener("mouseleave", () => {
   document.querySelector(".detailed").classList.toggle("hidden");
   progressItem.classList.toggle("hidden");
 });
+
+document.querySelector(".screen-theme").addEventListener("click", () => {
+  document.querySelector(".moon-icon").classList.toggle("hidden");
+  document.querySelector(".sun-icon").classList.toggle("hidden");
+});

@@ -6,6 +6,10 @@
   background-color: hidden;
 }
 
+* {
+  user-select: none;
+}
+
 body {
   font-family: Arial, sans-serif;
   height: 100vh;
@@ -77,6 +81,7 @@ a:hover {
 }
 
 .container {
+  position: relative;
   text-align: center;
   padding: 20px;
   border-radius: 10px;
@@ -110,6 +115,14 @@ a:hover {
 .detailed p {
   margin: 0 0;
   cursor: default;
+}
+
+.screen-theme {
+  position: absolute;
+  width: 3%;
+  cursor: pointer;
+
+  top: 80%;
 }
 
 footer {

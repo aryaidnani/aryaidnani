@@ -1127,6 +1127,14 @@ const blogs = [
               Today's day 50. Day 50 of 100 means I am at the halfway point of my challenge, and what better way to highlight this day than a class on C programming. This lecture was taken by our pricipal who took it last week as well. This was a noteworthy class because I was able to answer the pricipals questions correctly, point out errors in code and complete not just the 3 assignments assigned to me, but another 2 just in time! So this was an extremely productive programming class. Well I couldn't code much at home as I was occupied with preparations for ganpati, but have managed to chock out an hour in which I will be experimenting with "Immediately Invoked Functions" and "Closures" in javascript. So an okay-ish day, and heres to making the remaining half of the challenge just as memorable if not more.
             </p>`,
   },
+
+  {
+    id: 51,
+    dateStr: `7<sup>th</sup>September '24`,
+    content: `<p>
+              My streak has come to an end...
+            </p>`,
+  },
 ];
 
 //Rendering Function to implement dynamic doms
