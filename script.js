@@ -1,5 +1,5 @@
 let currentDate = new Date();
-const targetDate = new Date(currentDate.getFullYear(), 9, 26);
+const targetDate = new Date(currentDate.getFullYear(), 11, 16);
 
 const progressItem = document.querySelector(".progress-bar");
 
@@ -10,7 +10,7 @@ if (currentDate > targetDate) {
 const daysLeft = Math.ceil((targetDate - currentDate) / (1000 * 60 * 60 * 24));
 
 document.querySelector(".days").innerHTML =
-  daysLeft + " day(s) until October 26<sup>th</sup>";
+  daysLeft + " day(s) until December 16<sup>th</sup>";
 
 function webTime() {
   currentDate = new Date();
