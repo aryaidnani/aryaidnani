@@ -10,7 +10,7 @@ if (currentDate > targetDate) {
 const daysLeft = Math.ceil((targetDate - currentDate) / (1000 * 60 * 60 * 24));
 
 document.querySelector(".days").innerHTML =
-  daysLeft + " day(s) until December 16<sup>th</sup>";
+  daysLeft + " day(s) until December 20<sup>th</sup>";
 
 function webTime() {
   currentDate = new Date();
