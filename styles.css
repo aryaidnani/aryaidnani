@@ -2,6 +2,25 @@
 
 /* Mutual */
 
+/* 
+
+#364fc7
+#edf2ff
+
+*/
+
+:root {
+  color-scheme: light dark;
+}
+
+.light {
+  color-scheme: light;
+}
+
+.dark {
+  color-scheme: dark;
+}
+
 ::-webkit-scrollbar {
   background-color: hidden;
 }
@@ -17,7 +36,7 @@ body {
 
   display: flex;
   flex-direction: column;
-  background-color: #2b2b2b;
+  background-color: light-dark(#edf2ff, #2b2b2b);
 }
 
 nav {
@@ -26,7 +45,7 @@ nav {
   justify-content: space-between;
   align-items: center;
   background-color: rgba(255, 255, 255, 0.055);
-  color: #ffffff;
+  color: light-dark(#4c6ef5, #ffffff);
 }
 
 nav h1 {
@@ -51,7 +70,7 @@ a:visited,
 .blog-link,
 .sort-btn {
   text-decoration: none;
-  color: #ffffffb5;
+  color: light-dark(#3b5bdb, #ffffffb5);
   transition: 600ms;
   cursor: pointer;
 }
@@ -65,7 +84,7 @@ a:visited,
 }
 
 a:hover {
-  color: white;
+  color: light-dark(#364fc7, white);
   text-decoration: underline;
   transition: 600ms;
 }
@@ -85,8 +104,8 @@ a:hover {
   text-align: center;
   padding: 20px;
   border-radius: 10px;
-  background-color: #2b2b2b;
-  filter: drop-shadow(1px 1px 20px white);
+  background-color: light-dark(#edf2ff, #2b2b2b);
+  filter: drop-shadow(1px 1px 20px light-dark(#364ec761, white));
 }
 
 .days sup {
@@ -95,13 +114,13 @@ a:hover {
 
 .container h1 {
   margin-bottom: 20px;
-  color: white;
+  color: light-dark(#364ec7, white);
   cursor: default;
 }
 
 .days {
   font-size: 1.5em;
-  color: #ffffffb5;
+  color: light-dark(#4263eb, #ffffffb5);
 }
 
 .detailed {
@@ -109,7 +128,7 @@ a:hover {
   display: flex;
   justify-content: center;
   font-size: 1.5em;
-  color: #ffffffb5;
+  color: light-dark(#4263eb, #ffffffb5);
 }
 
 .detailed p {
@@ -119,10 +138,14 @@ a:hover {
 
 .screen-theme {
   position: absolute;
-  width: 3%;
+  width: 3rem;
   cursor: pointer;
 
-  top: 80%;
+  color: light-dark(#364fc7, white);
+  opacity: 30%;
+
+  top: 93.5%;
+  right: 0.1%;
 }
 
 footer {
@@ -132,7 +155,8 @@ footer {
   align-self: end;
   justify-content: center;
   color: #ffffff1d;
-  position: relative;
+  color: light-dark(#3b5bdb, #ffffff1d);
+  /* position: relative; */
 }
 
 .progress-bar {
@@ -140,10 +164,8 @@ footer {
   height: 2px;
   position: absolute;
   bottom: 0;
-}
 
-.hidden {
-  display: none;
+  background-color: light-dark(#364fc7, white);
 }
 
 /* ********************************************************** */
@@ -325,4 +347,8 @@ strong {
   nav li {
     font-size: 12px;
   }
+}
+
+.hidden {
+  display: none;
 }

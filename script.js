@@ -1,5 +1,5 @@
 let currentDate = new Date();
-const targetDate = new Date(currentDate.getFullYear(), 11, 16);
+const targetDate = new Date(currentDate.getFullYear(), 11, 20);
 
 const progressItem = document.querySelector(".progress-bar");
 
@@ -58,4 +58,6 @@ document.querySelector(".container").addEventListener("mouseleave", () => {
 document.querySelector(".screen-theme").addEventListener("click", () => {
   document.querySelector(".moon-icon").classList.toggle("hidden");
   document.querySelector(".sun-icon").classList.toggle("hidden");
+  document.querySelector(".landing-page").classList.toggle("dark");
+  document.querySelector(".landing-page").classList.toggle("light");
 });
