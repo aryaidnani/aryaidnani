@@ -58,6 +58,6 @@ document.querySelector(".container").addEventListener("mouseleave", () => {
 document.querySelector(".screen-theme").addEventListener("click", () => {
   document.querySelector(".moon-icon").classList.toggle("hidden");
   document.querySelector(".sun-icon").classList.toggle("hidden");
-  document.querySelector(".landing-page").classList.toggle("dark");
-  document.querySelector(".landing-page").classList.toggle("light");
+  document.querySelector("body").classList.toggle("dark");
+  document.querySelector("body").classList.toggle("light");
 });
