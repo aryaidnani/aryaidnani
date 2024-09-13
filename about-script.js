@@ -7,6 +7,12 @@ const blogs = [
     content: `<p>So yes, today is the day I restart my 100 days of code challenge. The last time I tried to complete this challenge, it ended on day 51. This delivered a huge blow to me. It took me 3 days to get over this in order to start today. So now my challenge gets over on the 20<sup>th</sup> of December. This isn't ideal but sadly thats the way everything is. Ocassionally we all have and will have our share of bad days, it is our response and outlook towards the situation which matter. Growth surely involves minimalization of pitfalls, but whats equally important is learning how to deal with them. By no means am I trying to fend for my broken streak of 50 days, but I have come to realise that, our reaction to such hard situations is what matters most. <br> <br>
     So here I am, after 3 days of regret and brooding, writing this blog after having done some coding today. Today I implemented the option to toggle between light and dark mode on my page. This is cool and I will be trying to learn more about responsive web pages today. I am restarting this challenge with the hope of being able to rebuild my lost momentum, and regain the confidence coding once gave me. </p>`,
   },
+
+  {
+    id: 2,
+    dateStr: `13<sup>th</sup> September '24`,
+    content: `<p>Today was a decently productive day. I managed to learn a little more about responsive web pages and also managed to make this website slightly more responsive. I did this by changing the hardcoded pixel values of elements to rem values. This took some time but the good part was the fact that I was able to balance this with meeting guests who came home for ganpati. Not only did I manage to interact with guests, but also managed to get my work done. On any other day I would've wanted to do more, but considering today's day coupled with college, I'm happy I was able to add/modify this part of my website.</p>`,
+  },
 ];
 
 //Rendering Function to implement dynamic doms
@@ -58,10 +64,10 @@ function blogRender(blogArray) {
 
     accordionContainer.appendChild(blogElement);
   });
-  // const footerEl = document.createElement("footer");
-  // footerEl.className = "blog-footer";
-  // footerEl.innerHTML = `&copy;2024-Arya IdnanI`;
-  // accordionContainer.append(footerEl);
+  const footerEl = document.createElement("footer");
+  footerEl.className = "blog-footer";
+  footerEl.innerHTML = `&copy;2024-Arya IdnanI`;
+  accordionContainer.append(footerEl);
 
   pageLoad();
 }
