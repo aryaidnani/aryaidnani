@@ -13,6 +13,12 @@ const blogs = [
     dateStr: `13<sup>th</sup> September '24`,
     content: `<p>Today was a decently productive day. I managed to learn a little more about responsive web pages and also managed to make this website slightly more responsive. I did this by changing the hardcoded pixel values of elements to rem values. This took some time but the good part was the fact that I was able to balance this with meeting guests who came home for ganpati. Not only did I manage to interact with guests, but also managed to get my work done. On any other day I would've wanted to do more, but considering today's day coupled with college, I'm happy I was able to add/modify this part of my website.</p>`,
   },
+
+  {
+    id: 3,
+    dateStr: `14<sup>th</sup> September '24`,
+    content: `<p>Well this was overwhelming to say the least. Today I attended my weekend Javascript class which was quite overwhelming. Why?Because today we started off with databases, mongodb to be specific. Every part of mongodb, for me atleast was a pain to say the least. Right from configuring mongodb's compass to creating a cluster to even updating it using CRUD, this was quite quite overwhelming. Databases are the next step for this website so I really want to learn them, but at the same time I need to do so slowly.<br><br> There is a clear miss match between what I have learnt through resources on the internet & what I have learnt through this weekend course. Now I need to bridge that gap because both these learning pathways are moving at a different pace. I can learn online however I want and whenever I want, but my weekend class is pretty fast. It is fast because the instructor teaches main concepts over the weekends and expects us to learn more about the subject over the week. Its been 8 weeks and its high time I bridge the gap.This is something I need to figure out, and figure out soon because my college starts in full flow from the coming week. Here's to figuring it out!! </p>`,
+  },
 ];
 
 //Rendering Function to implement dynamic doms
