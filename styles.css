@@ -65,9 +65,13 @@ ul {
   letter-spacing: 2px;
 }
 
-li {
-  margin-right: 50px;
+ul li:last-child {
+  margin-right: 5rem;
 }
+
+/* li {
+  margin-right: 50px;
+} */
 
 a:link,
 a:visited,
@@ -86,7 +90,12 @@ a:visited,
 }
 
 .blog-links {
-  margin-right: 3.79%;
+  margin-right: 3.6rem;
+}
+
+.blog-links ul {
+  gap: 5rem;
+  padding: 0;
 }
 
 a:hover {
