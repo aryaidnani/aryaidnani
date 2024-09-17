@@ -61,3 +61,30 @@ document.querySelector(".screen-theme").addEventListener("click", () => {
   document.querySelector("body").classList.toggle("dark");
   document.querySelector("body").classList.toggle("light");
 });
+
+let categories = [
+  "business",
+  "computers",
+  "inspirational",
+  "intelligence",
+  "knowledge",
+  "success",
+];
+
+let category = `${categories[Math.trunc(Math.random() * 5)]}`;
+console.log(category);
+
+$.ajax({
+  method: "GET",
+  url: "https://api.api-ninjas.com/v1/quotes?category=" + category,
+  headers: { "X-Api-Key": "cbx1VfCMlKG+QYj7XLu9UA==Y0QYiTTzletiQuWT" },
+  contentType: "application/json",
+  success: function (result) {
+    let [quoteObj] = result;
+    document.querySelector(".quote-content").textContent = quoteObj.quote;
+    document.querySelector(".quote-author").textContent = `-${quoteObj.author}`;
+  },
+  error: function ajaxError(jqXHR) {
+    console.error("Error: ", jqXHR.responseText);
+  },
+});

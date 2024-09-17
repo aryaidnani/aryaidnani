@@ -152,6 +152,23 @@ a:hover {
   cursor: default;
 }
 
+.quote-container {
+  margin: 0 auto;
+  position: absolute;
+  top: 75%;
+  right: 50%;
+
+  font-size: 1.8rem;
+
+  transform: translate(50%);
+}
+
+.quote {
+  letter-spacing: 1px;
+  color: light-dark(#4263eb, #ffffff6e);
+  text-align: center;
+}
+
 .screen-theme {
   position: absolute;
   width: 4.8rem;
