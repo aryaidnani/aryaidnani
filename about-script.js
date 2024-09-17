@@ -31,6 +31,12 @@ const blogs = [
     dateStr: `16<sup>th</sup> September '24`,
     content: `<p>By far the most productive day since I have restarted my streak. Today I managed to finish a decent part of backlog I had in my Javascript weekend class. The focus of these topics was middlewares and http servers. I have never understood these topics as well as I did today and I'm so glad I did. I also wanted to sort've start with authentication but that will take some time. Anyways I managed to get a hang of these topics fairly well and tried implementing them on a local clone of this website. For some reason I am not able to import the express library, but am trying to figure out why. Other than that you can probably tell I'm very happy with today.<br><br> What makes me happier is the fact that I got my class roll number and it is the most apt number any developer could hope for. It is (drumroll) 64!!!!. This number is drilled into anyone who's into development, tech or both. 64 bit, base 64, 64gb and the list goes on. Couldn't be happier with today's progress and I can't wait to maximise tomorrow.</p>`,
   },
+
+  {
+    id: 6,
+    dateStr: `17<sup>th</sup> September '24`,
+    content: `<p>Akshita if you're reading this, thank you so much for your advice and help. Please call me tomorrow though. The blog of Day 4 has a little about you and might make you smile (nothing you don't already know) but still.<br><br>Coming to today's work, it was pretty decent. I couldn't manage to see the lectures I planned to but I implemented something I've been wanting to for a while. So I added a text container on the landing page which displays a new quote each time someone visits the site. I added this by using an api and by destructuring the JSON content it returned to me. Doing so also introduced concepts like ajax and jquery to me which are important and I'm happy that I was able to use them a bit. Other than that I'm happy with what I did today and like I said yesterday, can't wait to maximise tomorrow. Akshita seriously call me ;)</p>`,
+  },
 ];
 
 //Rendering Function to implement dynamic doms
