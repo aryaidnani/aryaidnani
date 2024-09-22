@@ -1,3 +1,4 @@
+import config from "./config.js";
 let currentDate = new Date();
 const targetDate = new Date(currentDate.getFullYear(), 11, 20);
 
@@ -77,7 +78,7 @@ console.log(category);
 $.ajax({
   method: "GET",
   url: "https://api.api-ninjas.com/v1/quotes?category=" + category,
-  headers: { "X-Api-Key": "cbx1VfCMlKG+QYj7XLu9UA==Y0QYiTTzletiQuWT" },
+  headers: { "X-Api-Key": config.SECRET_KEY },
   contentType: "application/json",
   success: function (result) {
     let [quoteObj] = result;
