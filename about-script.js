@@ -79,7 +79,41 @@ const blogs = [
     dateStr: `24<sup>th</sup> September '24`,
     content: `<p>What a day, what a day indeed. One year ago, it was on this very day that I went through one of my mental breakdowns. I was completely torn and my willpower was shattered. But here I am one year later, getting up at 4am once again like yesterday, coding in the morning and after college, being able to get over my past. A past which has taken everything away from me, a past which I can finally breathe a sigh of relief about. <br><br>Even though I slept at 11pm yesterday, I still managed to get up at 4am and learn about bcrypt and zod. These were libraries I had touched upon when I was introduced to mongodb, but it was today that I was able to better understand them. The highlight of was not just the better position I am in, contrary to last year, but it was in partially setting up the backend of my blog site. I linked a mongodb database to my backend, created a function to post blogs using post request methods and modified that method to seed my database with all these blogs in just one single click! Yes one request was all it took to seed my database completely. Instead of simply copy-pasting, I iterated over an array of objects with blog data, and in each iteration I added data to my database. Even though this is a simple and straightforward approach, given my history with mongodb, I was happy it worked just right on the first try.<br><br> Arya Idnani you've made it this far, you've come from a place of despair, heartbreak, from being wronged, cheated and left behind to building yourself from scratch, learning how to say a NO to people and to catching up to your peers, realising your self worth and the very potential it stems from. No one can comprehend what I've been through and it is with utmost pride that I'm writing this blog. Never could I have imagined such a miraculous change in circumstances, one in which I feel wanted, I feel cared for and most importantly finally being able to feel a sense of purpose , the motivation AND action to fulfill it. I'm finally at a place from where I can say with a smile on my face that-<br> <i>The only way to learn is to live.</i></p>`,
   },
+
+  {
+    id: 14,
+    dateStr: `25<sup>th</sup> September '24`,
+    content: `<p>Today's day was also great, it was great because I was able to write a backend to talk to my database I set up yesterday, and link it to my frontend. I also managed to retrive data from my database using get request methods which I wrote in the backend file. The only problem I came across was when it came to using that data in dom manipulation. For some weird reason I wasn't able to iterate over the data and have a strange feeling that it might have something to do with its type. I'll anyways be looking into this, because once I have this figured out, my blog site will officially be a FULLSTACK application with a Frontend, Backend and Database!<br><br>This cycle of up's and downs is soo strange and day after day it becomes more obvious. I've come to realise that we often overlook it unless we keep a proper track of each day for sometime. This realisation has also prepared me for the days which aren't as productive. So all in all I'm happy how this challenge is turning out to be and I can't wait to for the endless lessons it is going to teach me!</p>`,
+  },
 ];
+
+/* ********************************************************** */
+
+// async function fetchBlogs() {
+//   const blog = Promise.resolve(await axios.get("http://localhost:443/"));
+//   return blog;
+// }
+
+// const blogs = fetchBlogs().then((res) => res.data);
+// console.log(Promise.resolve(blogs));
+
+// let blogs;
+
+// async function fetchBlogs() {
+//   const response = await axios.get("http://localhost:443/");
+//   return response.data; // Return the data directly
+// }
+
+// (async () => {
+//   try {
+//     blogs = await fetchBlogs();
+//     console.log(blogs);
+//   } catch (error) {
+//     console.error("Error fetching blogs:", error);
+//   }
+// })();
+
+/* ********************************************************** */
 
 //Rendering Function to implement dynamic doms
 
@@ -100,7 +134,7 @@ function blogRender(blogArray) {
             stroke-width="1.5"
             stroke="currentColor"
             class="icon downwards">
-            
+
              <path
               stroke-linecap="round"
               stroke-linejoin="round"
@@ -122,7 +156,7 @@ function blogRender(blogArray) {
               d="m4.5 15.75 7.5-7.5 7.5 7.5"
             />
           </svg>
-          
+
           <div class = "content hidden"> ${blog.content}
           <h4>${blog.dateStr.replaceAll(" ", "")}</h4>
           </div>
