@@ -4,7 +4,7 @@ const Schema = mongoose.Schema;
 
 const blogPost = new Schema({
   id: Number,
-  dateStr: Number,
+  dateStr: String,
   content: String,
 });
 
