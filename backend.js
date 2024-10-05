@@ -2,10 +2,9 @@ const cors = require("cors");
 const express = require("express");
 const { blogModel } = require("./db");
 const mongoose = require("mongoose");
+require("dotenv").config();
 
-mongoose.connect(
-  "mongodb+srv://admin:MS10DwmRLt0BWiru@cluster0.nstku.mongodb.net/blog-page"
-);
+mongoose.connect(process.env.MONGODB_KEY);
 
 const app = express();
 app.use(cors());

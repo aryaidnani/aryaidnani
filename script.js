@@ -1,4 +1,3 @@
-import config from "./config.js";
 let currentDate = new Date();
 const targetDate = new Date(currentDate.getFullYear(), 11, 20);
 
@@ -63,29 +62,22 @@ document.querySelector(".screen-theme").addEventListener("click", () => {
   document.querySelector("body").classList.toggle("light");
 });
 
-let categories = [
-  "business",
-  "computers",
-  "inspirational",
-  "intelligence",
-  "knowledge",
-  "success",
-];
+// let categories = ["intelligence", "knowledge", "success"];
 
-let category = `${categories[Math.trunc(Math.random() * 5)]}`;
-console.log(category);
+// let category = `${categories[Math.trunc(Math.random() * 2)]}`;
+// console.log(category);
 
-$.ajax({
-  method: "GET",
-  url: "https://api.api-ninjas.com/v1/quotes?category=" + category,
-  headers: { "X-Api-Key": config.SECRET_KEY },
-  contentType: "application/json",
-  success: function (result) {
-    let [quoteObj] = result;
-    document.querySelector(".quote-content").textContent = quoteObj.quote;
-    document.querySelector(".quote-author").textContent = `-${quoteObj.author}`;
-  },
-  error: function ajaxError(jqXHR) {
-    console.error("Error: ", jqXHR.responseText);
-  },
-});
+// $.ajax({
+//   method: "GET",
+//   url: "https://api.api-ninjas.com/v1/quotes?category=" + category,
+//   headers: { "X-Api-Key": process.env.SECRET_KEY },
+//   contentType: "application/json",
+//   success: function (result) {
+//     let [quoteObj] = result;
+//     document.querySelector(".quote-content").textContent = quoteObj.quote;
+//     document.querySelector(".quote-author").textContent = `-${quoteObj.author}`;
+//   },
+//   error: function ajaxError(jqXHR) {
+//     console.error("Error: ", jqXHR.responseText);
+//   },
+// });

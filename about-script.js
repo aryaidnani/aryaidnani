@@ -140,122 +140,142 @@ const blogs = [
     dateStr: `4<sup>th</sup> October '24`,
     content: `<p>Before you reach the end of the blog, let me just say that today wasn't the most productive day, I might've coded for an hour and thats it, but boy was it a good day. Because of the black coffee I had yesterday morning, I felt super sleepy today morning. I was so sleepy that I was at the brink of bunking college and coming back home, but I pushed myself not to. I pushed myself to be as attentive as possible, and make the most of my time, and surprisingly things paid off well.<br><br>Well for starters, everything that was taught today to us was super interesting and I'm glad I managed to not sleep during any of the lectures. We also interacted with our seniors a lot today, and I could say with a smile that my day was well spent. To top this off I also drove today, for another whopping 70 kilometers and was accompanied with both my dad and mother. They loved the drive as much as I did and I'm just thankful for a safe a smooth drive. In terms of coding I learnt a little bit more about sorting, filling arrays and tried making development work. I know this isn't substantial, but I'll make the most out of tomorrow.</p>`,
   },
+
+  {
+    id: 24,
+    dateStr: `5<sup>th</sup> October '24`,
+    content: `<p>It finally happened, yes this website, my blog page, my lovely pet project which has kept me going this far, IS FINALLY A FULLSTACK WEBSITE. This took so long and so much of head-smacking went into this. I'm probably exaggerating a simple fullstack website, but that doesn't take any of the satisfaction away from me. Being able to take a simple html css page to a fullstack website is really cool and never could I have imagined, when I started this, that one day I'll have a dedicated frontend, backend and database.<br><br>So for context, the foundation of this website was laid on the 19<sup>th</sup> of July. All I remember is that I was super upset with myself, I was troubled and just wanted my mental situation to improve. I did what any other teenager would and started a personal diary, except because I wanted to be cool like Mark Zuckerberg, I decided to host this personal diary as a blog-page on the internet and blog about my coding journey. As an added challenge, I decided to code for a 100 days straight and used this blog page to keep me going.<br><br>That streak has ended once (on the 7th of September) after lasting for 50 days, but that hasn't changed the fact of how I've built this site from scratch, from simple HTML, to moderate CSS, to dynamic doms using Javascript, to finally a fully functional backend connected to a dedicated database! I still remember contemplating (a couple of weeks into the challenge) this course of action. But back then I thought this wasn't my cup of tea and would take very long to pull of. Yet here I am having pulled it off inspite of some inconsistency because of packed schedules.<br><br>I really don't want to use that excuse but it is what it is. What I managed to figure out over 11 days (out of which I worked on this just for 2 hours on 2 separate days) could've easily be finished in under an hour. But that's the learning curve, we all learn at a different pace because we all handle our other priorities differently. This outlook makes me feel so happy. Being able to feel the highs, analyse reality without it letting it affect my happiness and coming up with an unbiased justification is just so beautiful. In many ways its like another fullstack website. One which I have just built, one which really makes me feel ON TOP OF THE WORLD. I'm yet to figure out how to deploy this to the internet, deployment is much like implementation of ideas. All analysis is worthless without implementation just like my dear GLAMAJ has taught me.<br><i>An idea is only as good as the hands executing it.</i></p>`,
+  },
 ];
 
 /* ********************************************************** */
 
-// async function fetchBlogs() {
-//   const blog = Promise.resolve(await axios.get("http://localhost:443/"));
-//   return blog;
-// }
-
-// const blogs = fetchBlogs().then((res) => res.data);
-// console.log(Promise.resolve(blogs));
-
-// let blogs;
-
-// async function fetchBlogs() {
-//   const response = await axios.get("http://localhost:443/");
-//   return response.data; // Return the data directly
-// }
-
-// (async () => {
-//   try {
-//     blogs = await fetchBlogs();
-//     console.log(blogs);
-//   } catch (error) {
-//     console.error("Error fetching blogs:", error);
-//   }
-// })();
-
-/* ********************************************************** */
+let blogsdb;
 
 //Rendering Function to implement dynamic doms
 
-function blogRender(blogArray) {
-  const accordionContainer = document.querySelector(".accordion");
-  accordionContainer.innerHTML = "";
+async function fetchBlogs() {
+  //  DB Fetching
+  // const blogsdb = (await axios.get("http://localhost:443/")).data;
 
-  blogArray.forEach((blog) => {
-    const blogElement = document.createElement("div");
-    blogElement.className = `item item-${blog.id}`;
+  try {
+    function blogRender(blogArray) {
+      const accordionContainer = document.querySelector(".accordion");
+      accordionContainer.innerHTML = "";
 
-    blogElement.innerHTML = `
-    <h2 class = "day-number">${`Day ${blog.id}`}</h2>
-    <h2 class = "date-number hidden">${blog.dateStr}</h2>
-    <svg xmlns="http://www.w3.org/2000/svg"
-            fill="none"
-            viewBox="0 0 24 24"
-            stroke-width="1.5"
-            stroke="currentColor"
-            class="icon downwards">
+      blogArray.forEach((blog) => {
+        const blogElement = document.createElement("div");
+        blogElement.className = `item item-${blog.id}`;
 
-             <path
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              d="m19.5 8.25-7.5 7.5-7.5-7.5"
-            />
-          </svg>
+        blogElement.innerHTML = `
+        <h2 class = "day-number">${`Day ${blog.id}`}</h2>
+        <h2 class = "date-number hidden">${blog.dateStr}</h2>
+        <svg xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke-width="1.5"
+                stroke="currentColor"
+                class="icon downwards">
+    
+                 <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="m19.5 8.25-7.5 7.5-7.5-7.5"
+                />
+              </svg>
+    
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke-width="1.5"
+                stroke="currentColor"
+                class="icon upwards hidden"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="m4.5 15.75 7.5-7.5 7.5 7.5"
+                />
+              </svg>
+    
+              <div class = "content hidden"> ${blog.content}
+              <h4>${blog.dateStr.replaceAll(" ", "")}</h4>
+              </div>
+              `;
 
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            fill="none"
-            viewBox="0 0 24 24"
-            stroke-width="1.5"
-            stroke="currentColor"
-            class="icon upwards hidden"
-          >
-            <path
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              d="m4.5 15.75 7.5-7.5 7.5 7.5"
-            />
-          </svg>
+        accordionContainer.appendChild(blogElement);
+      });
+      const footerEl = document.createElement("footer");
+      footerEl.className = "blog-footer";
+      footerEl.innerHTML = `&copy;2024-Arya IdnanI`;
+      accordionContainer.append(footerEl);
 
-          <div class = "content hidden"> ${blog.content}
-          <h4>${blog.dateStr.replaceAll(" ", "")}</h4>
-          </div>
-          `;
-
-    accordionContainer.appendChild(blogElement);
-  });
-  const footerEl = document.createElement("footer");
-  footerEl.className = "blog-footer";
-  footerEl.innerHTML = `&copy;2024-Arya IdnanI`;
-  accordionContainer.append(footerEl);
-
-  pageLoad();
-}
-
-function blogSort(order = "latest") {
-  blogs.sort((a, b) => {
-    if (order === "latest") {
-      return b.id - a.id;
-    } else if (order === "oldest") {
-      return a.id - b.id;
+      pageLoad();
     }
-  });
-  console.log("workss");
-  blogRender(blogs);
+
+    function blogSort(order = "latest") {
+      blogs.sort((a, b) => {
+        //P1
+        if (order === "latest") {
+          return b.id - a.id;
+        } else if (order === "oldest") {
+          return a.id - b.id;
+        }
+      });
+      blogRender(blogs); //P2
+    }
+
+    blogSort("latest"); //Initial Sorting
+
+    const sortBtn = document.querySelector(".sort-btn");
+
+    sortBtn.addEventListener("click", () => {
+      sortBtn.classList.toggle("oldest");
+      sortBtn.classList.toggle("latest");
+
+      if (!sortBtn.classList.contains("latest")) {
+        sortBtn.textContent = "Oldest";
+        blogSort("oldest");
+      } else if (!sortBtn.classList.contains("oldest")) {
+        sortBtn.textContent = "Latest";
+        blogSort("latest");
+      }
+    });
+  } catch (error) {
+    console.error("Error fetching blogs:", error);
+  }
 }
 
-blogRender(blogs); //Rendering
-blogSort("latest"); //Initial Sorting
+fetchBlogs();
 
-const sortBtn = document.querySelector(".sort-btn");
+// function blogSort(order = "latest") {
+//   blogsdb.sort((a, b) => {
+//     if (order === "latest") {
+//       return b.id - a.id;
+//     } else if (order === "oldest") {
+//       return a.id - b.id;
+//     }
+//   });
+// }
 
-sortBtn.addEventListener("click", () => {
-  sortBtn.classList.toggle("oldest");
-  sortBtn.classList.toggle("latest");
+// // blogRender(blogAction); //Rendering
+// blogSort("latest"); //Initial Sorting
 
-  if (!sortBtn.classList.contains("latest")) {
-    sortBtn.textContent = "Oldest";
-    blogSort("oldest");
-  } else if (!sortBtn.classList.contains("oldest")) {
-    sortBtn.textContent = "Latest";
-    blogSort("latest");
-  }
-});
+// const sortBtn = document.querySelector(".sort-btn");
+
+// sortBtn.addEventListener("click", () => {
+//   sortBtn.classList.toggle("oldest");
+//   sortBtn.classList.toggle("latest");
+
+//   if (!sortBtn.classList.contains("latest")) {
+//     sortBtn.textContent = "Oldest";
+//     blogSort("oldest");
+//   } else if (!sortBtn.classList.contains("oldest")) {
+//     sortBtn.textContent = "Latest";
+//     blogSort("latest");
+//   }
+// });
 
 //Accordion Functionality
 
