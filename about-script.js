@@ -156,7 +156,8 @@ let blogsdb;
 
 async function fetchBlogs() {
   //  DB Fetching
-  // const blogsdb = (await axios.get("http://localhost:443/")).data;
+  const blogsdb = (await axios.get("https://aryaidnanifullstack.vercel.app/"))
+    .data;
 
   try {
     function blogRender(blogArray) {
@@ -215,7 +216,7 @@ async function fetchBlogs() {
     }
 
     function blogSort(order = "latest") {
-      blogs.sort((a, b) => {
+      blogsdb.sort((a, b) => {
         //P1
         if (order === "latest") {
           return b.id - a.id;
@@ -223,7 +224,7 @@ async function fetchBlogs() {
           return a.id - b.id;
         }
       });
-      blogRender(blogs); //P2
+      blogRender(blogsdb); //P2
     }
 
     blogSort("latest"); //Initial Sorting
