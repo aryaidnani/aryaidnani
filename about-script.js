@@ -156,8 +156,7 @@ let blogsdb;
 
 async function fetchBlogs() {
   //  DB Fetching
-  const blogsdb = (await axios.get("https://aryaidnanifullstack.vercel.app/"))
-    .data;
+  const blogsdb = (await axios.get("http://localhost:443/")).data;
 
   try {
     function blogRender(blogArray) {
