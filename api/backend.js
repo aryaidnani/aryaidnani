@@ -1,6 +1,6 @@
 const cors = require("cors");
 const express = require("express");
-const { blogModel } = require("../db");
+const { blogModel } = require("../public/db");
 const mongoose = require("mongoose");
 require("dotenv").config();
 
@@ -28,7 +28,7 @@ app.post("/blog-post", async (req, res) => {
   });
 });
 
-app.get("/", async (req, res) => {
+app.get("/api", async (req, res) => {
   const allBlogs = await blogModel.find();
 
   res.json(allBlogs);

@@ -2,9 +2,9 @@
   "name": "aryaidnani",
   "version": "1.0.0",
   "description": "<!-- **aryaidnani/aryaidnani** is a ✨ _special_ ✨ repository because its `README.md` (this file) appears on your GitHub profile.",
-  "main": "about-script.js",
+  "main": "./api/backend.js",
   "scripts": {
-    "start": "node ./api/backend.ts",
+    "start": "node ./api/backend.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
@@ -15,5 +15,9 @@
     "dotenv": "^16.4.5",
     "express": "^4.21.0",
     "mongoose": "^8.6.3"
+  },
+  "devDependencies": {
+    "@types/express": "^5.0.0",
+    "@types/node": "^22.7.4"
   }
 }
