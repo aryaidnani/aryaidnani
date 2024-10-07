@@ -152,6 +152,12 @@ const blogs = [
     dateStr: `6<sup>th</sup> October '24`,
     content: `<p>DAY 25 OF 100 BABY and man am I glad the day went the way it did. Yesterday was a big day for me because my blog page was finally a fullstack site (locally) so naturally the next step for me was to figure out how to deploy it. Given how pumped I was, I was almost certain that I'll manage to figure out deployment today, in some ways I did in some I didn't.Being the 3<sup>rd</sup> day of navratri, my mother and I visited the mahalaxmi temple today like we do every year.We also visited a relative's house for the same and all in all this did make the day slightly tiring. Even though the temple was crowded I was happy to be able to say my prayers peacefully.<br><br>Now lets get down to business. So I gave it my all to figure out the deployment of my website, but it just didn't work. Everything I had learnt from previous experience was taken into account, the backend file was in typescript, it was in an api folder, the fetch url was re-defined and a vercel.json file was also intialized. I had even figured out dotenv so everything seemed to be right, but it just didn't work. After all types of permutations and combinations I took a much needed break and tried it all again. Even though it didn't work on the second try it finally clicked (with help from chatgpt), I needed to write a typescript config file. So whenever we use typescript in projects with javascript, nodejs or even by itself, initializing a configuration file is generally good practice. I'm damn sure that this is the only thing I need to fix because even when I deployed my website from scratch the logs gave this very error. Hopefully I'll figure this out tomorrow and by day 26 I'll have a fully deployed full stack application!</p>`,
   },
+
+  {
+    id: 26,
+    dateStr: `7<sup>th</sup> October '24`,
+    content: `<p>What do I say about today, I was super hopeful of figuring out deployment today but once again I couldn't. I shifted the project back from typescript to javascript, after I got fed up with typescript and after getting fed up with Javascript ended up merging the development branch with the production branch. Yes this did affect my  working site's functionality for a bit but I was and still am super bummed about this fact.Every cell inside my body starts retaliating when I can't figure something out or when I lose control of something. <br><br>So imagine what I would be going through having lost complete control over deploying this project and not being able to figure out why. You can even amplify that to whatever degree you like considering that I finally built a fullstack website which couldn't make it to deployment. Anyways that's my stuff to deal with, all I can do is try keeping deployment aside for a while and focus on learning how to code better. At most I'll approach some senior to help me figure this out but other than that I'm done. Here's to shifting my focus back to learning and hopefully figuring this out one day.</p>`,
+  },
 ];
 
 /* ********************************************************** */
@@ -162,9 +168,10 @@ let blogsdb;
 
 async function fetchBlogs() {
   //  DB Fetching
-  const blogsdb = (
-    await axios.get("https://aryaidnanifullstack.vercel.app/api")
-  ).data;
+
+  // const blogsdb = (
+  //   await axios.get("https://aryaidnanifullstack.vercel.app/api")
+  // ).data;
 
   // const blogsdb = (await axios.get("http://localhost:443/api")).data;
 
@@ -225,7 +232,7 @@ async function fetchBlogs() {
     }
 
     function blogSort(order = "latest") {
-      blogsdb.sort((a, b) => {
+      blogs.sort((a, b) => {
         //P1
         if (order === "latest") {
           return b.id - a.id;
@@ -233,7 +240,7 @@ async function fetchBlogs() {
           return a.id - b.id;
         }
       });
-      blogRender(blogsdb); //P2
+      blogRender(blogs); //P2
     }
 
     blogSort("latest"); //Initial Sorting
