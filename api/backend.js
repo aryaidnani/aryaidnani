@@ -34,4 +34,5 @@ app.get("/api", async (req, res) => {
   res.json(allBlogs);
 });
 
-app.listen(443);
+// app.listen(443);
+module.exports = app;
