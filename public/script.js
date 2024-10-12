@@ -24,19 +24,19 @@ function webTime() {
 
   let timeDiffSeconds = targetDate.getSeconds() - currentDate.getSeconds();
   document.querySelector(".seconds").textContent =
-    60 + timeDiffSeconds < 10
-      ? "0" + (60 + timeDiffSeconds)
-      : 60 + timeDiffSeconds;
+    59 + timeDiffSeconds < 10
+      ? "0" + (59 + timeDiffSeconds)
+      : 59 + timeDiffSeconds;
 
   let timeDiffMinutes = targetDate.getMinutes() - currentDate.getMinutes();
   document.querySelector(".minutes").textContent =
-    60 + timeDiffMinutes < 10
-      ? "0" + (60 + timeDiffMinutes)
-      : 60 + timeDiffMinutes;
+    59 + timeDiffMinutes < 10
+      ? "0" + (59 + timeDiffMinutes)
+      : 59 + timeDiffMinutes;
 
   let timeDiffHours = targetDate.getHours() - currentDate.getHours();
   document.querySelector(".hours").textContent =
-    24 + timeDiffHours < 10 ? "0" + (24 + timeDiffHours) : 24 + timeDiffHours;
+    23 + timeDiffHours < 10 ? "0" + (23 + timeDiffHours) : 23 + timeDiffHours;
 
   progressItem.value = 100 - timeDiffDays;
 }
