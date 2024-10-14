@@ -194,6 +194,12 @@ const blogs = [
     dateStr: `13<sup>th</sup> October '24`,
     content: `<p>I can't put into words how much I'll remember today for. Well quick disclaimer, its not because of anything I did, but because of an event which took place. While I did manage to pull of some decent coding off with studying math, Spacex's starship testflight was what blew my mind away. This was their 5<sup>th</sup> test-flight and they nailed every bit of it. They managed to launch a rocket, bigger than the statue of liberty, the first of its kind and the biggest humanity's ever launched, take it to orbit, land (quite literally catch) its booster, and almost nail a splashdown with the main ship!<br><br>They caught the booster, weighing over 200 tons, mid air as it returned from its flight, and managed to pull it off at their first attempt! Spacex did test this same rocket with the same booster 4 times before this, but today was their first attempt at catching it and they absolutely nailed it. This is a testament to the engineering involved which speaks for itself. This test flight has inspired me heavily and I will make sure I live up to it. For today's coding I took a deeper look into DOM's (Document object model) and learnt all about its methods, and a sweet method which scrolls a particular element into view. I even added this feature to this website, but didn't push it into production due to some bugs which won't take long to resolve. An actual test of my dedication begins from tomorrow as I'll be back in college and hopefully won't falter in the face of adversity.</p>`,
   },
+
+  {
+    id: 33,
+    dateStr: `14<sup>th</sup> October '24`,
+    content: `<p>This slump is lasting much longer than I anticipated. I couldn't get much work done today either other than implementing a smooth scrolling function on this website that I learn't yesterday. As mentioned in yesterday's blog, I wasn't able to push this to production because of some errors which I seem to have fixed today. Took me about half an hour though (not something I'm proud of) but I managed to add the feature. The issue lied with the way in which my html is structured. So instead of calling on the window element, I have to call on the blog-content element which then solves the issue. I couldn't wrap my head around some small details but thats probably because of how tired I became today.<br><br>Neither was I able to get up at time in the morning today, nor was I fresh after coming back from college. The result was minimal coding which cannot become a habit. I need to push myself out of this slump and make things work. On that note I'm going to sleep as it is nearing 9pm and hopefully I'll have a much better day on the other side. </p>`,
+  },
 ];
 
 /* ********************************************************** */
@@ -295,7 +301,7 @@ async function fetchBlogs() {
         blogSort("latest");
       }
 
-      const blogContent = document.querySelector(".blog-content");
+      let blogContent = document.querySelector(".blog-content");
 
       blogContent.scrollTo({
         top: 0,
@@ -370,4 +376,18 @@ document.querySelector(".screen-theme").addEventListener("click", () => {
   document.querySelector(".sun-icon").classList.toggle("hidden");
   document.querySelector("body").classList.toggle("dark");
   document.querySelector("body").classList.toggle("light");
+});
+
+let blogContent = document.querySelector(".blog-content");
+const scrollBtn = document.querySelector(".scroll");
+
+let accordionCoord = document
+  .querySelector(".accordion")
+  .getBoundingClientRect().top;
+
+scrollBtn.addEventListener("click", () => {
+  blogContent.scrollTo({
+    top: 0,
+    behavior: "smooth",
+  });
 });

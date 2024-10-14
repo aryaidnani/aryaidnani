@@ -182,6 +182,23 @@ a:hover {
   right: 0.1%;
 }
 
+.scroll {
+  position: absolute;
+  width: 4.8rem;
+  cursor: pointer;
+
+  color: light-dark(#364fc7, white);
+  opacity: 30%;
+
+  top: 85%;
+  right: 0.1%;
+  transition: 0.5s ease;
+}
+
+.hidden .scroll {
+  transition: 0.5s ease;
+}
+
 footer {
   display: flex;
   width: 100%;
