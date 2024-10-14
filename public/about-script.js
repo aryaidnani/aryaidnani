@@ -294,6 +294,13 @@ async function fetchBlogs() {
         sortBtn.textContent = "Latest";
         blogSort("latest");
       }
+
+      const blogContent = document.querySelector(".blog-content");
+
+      blogContent.scrollTo({
+        top: 0,
+        behavior: "smooth",
+      });
     });
   } catch (error) {
     console.error("Error fetching blogs:", error);
