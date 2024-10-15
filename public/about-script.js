@@ -200,6 +200,12 @@ const blogs = [
     dateStr: `14<sup>th</sup> October '24`,
     content: `<p>This slump is lasting much longer than I anticipated. I couldn't get much work done today either other than implementing a smooth scrolling function on this website that I learn't yesterday. As mentioned in yesterday's blog, I wasn't able to push this to production because of some errors which I seem to have fixed today. Took me about half an hour though (not something I'm proud of) but I managed to add the feature. The issue lied with the way in which my html is structured. So instead of calling on the window element, I have to call on the blog-content element which then solves the issue. I couldn't wrap my head around some small details but thats probably because of how tired I became today.<br><br>Neither was I able to get up at time in the morning today, nor was I fresh after coming back from college. The result was minimal coding which cannot become a habit. I need to push myself out of this slump and make things work. On that note I'm going to sleep as it is nearing 9pm and hopefully I'll have a much better day on the other side. </p>`,
   },
+
+  {
+    id: 34,
+    dateStr: `15<sup>th</sup> October '24`,
+    content: `<p>So today's day was actually good. I was able to get up on time, get my work (college work) done through the day, study a bit and code bare minimum. Ideally I would've wanted to code for longer but given how packed today was, I'm happy with what I was able to do. I learnt more about bubbling and capturing in javascript and how we can use event propogation and delegation. These are easy concepts but ones which are deep and can be confusing at times. I was also able to kind of help a senior of mine today. She was having her exam and was naturally tensed, I sensed this and prompted her to meet me before the exam. This was quite spontaneous given that I've just started getting to know her, but being able to help her a little made me happy. I also met my school friends after a super long time and it was nice to catchup. So ideally I don't want more of these days, and I will give it my all to bring my expectations to reality.</p>`,
+  },
 ];
 
 /* ********************************************************** */
