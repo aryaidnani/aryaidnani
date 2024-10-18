@@ -28,7 +28,7 @@ app.post("/blog-post", async (req, res) => {
   });
 });
 
-app.get("/blogData", async (req, res) => {
+app.get("https://aryaidnani.in/blogData", async (req, res) => {
   console.log(`running 1`);
 
   const allBlogs = await blogModel.find();
