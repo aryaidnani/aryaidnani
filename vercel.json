@@ -8,11 +8,11 @@
   ],
   "routes": [
     {
-      "src": "/api/(.*)",
+      "src": "/api",
       "dest": "api/backend.js"
     },
     {
-      "src": "/(.*)",
+      "src": "/",
       "dest": "/public/index.html"
     }
   ]
