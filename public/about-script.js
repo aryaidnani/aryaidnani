@@ -229,9 +229,9 @@ let blogsdb;
 async function fetchBlogs() {
   //  DB Fetching
 
-  const blogs = (await axios.get("https://aryaidnani.in/api/blogData")).data;
+  // const blogs = (await axios.get("https://aryaidnani.in/api/blogData")).data;
 
-  // const blogs = (await axios.get("http://localhost:443/api")).data;
+  const blogs = (await axios.get("http://localhost:443/blogData")).data;
 
   try {
     function blogRender(blogArray) {
