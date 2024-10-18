@@ -1,6 +1,6 @@
 const cors = require("cors");
 const express = require("express");
-const { blogModel } = require("../public/db");
+const { blogModel } = require("./db");
 const mongoose = require("mongoose");
 require("dotenv").config();
 
@@ -34,5 +34,5 @@ app.get("/api", async (req, res) => {
   res.json(allBlogs);
 });
 
-// app.listen(443);
-module.exports = app;
+app.listen(443);
+// module.exports = app;
