@@ -28,7 +28,7 @@ app.post("/blog-post", async (req, res) => {
   });
 });
 
-app.get("/api", async (req, res) => {
+app.get("/blogData", async (req, res) => {
   const allBlogs = await blogModel.find();
 
   res.json(allBlogs);
