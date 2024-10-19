@@ -1,4 +1,3 @@
-import axios from "axios";
 //Blog Array
 
 // const blogs = [
@@ -236,9 +235,23 @@ let blogsdb;
 async function fetchBlogs() {
   //  DB Fetching
 
-  const blogs = (await axios.get("https://aryaidnani.in/api/blogData")).data;
+  // const blogs = (await axios.get("https://aryaidnani.in/api/blogData")).data;
+
+  const blogs = await fetch("https://aryaidnani.in/api/blogData", {
+    method: "GET",
+    headers: {
+      "Content-Type": "application/json",
+    },
+  }).then((response) => response.json());
 
   // const blogs = (await axios.get("http://localhost:443/blogData")).data;
+
+  // const blogs = await fetch("http://localhost:443/blogData", {
+  //   method: "GET",
+  //   headers: {
+  //     "Content-Type": "application/json",
+  //   },
+  // }).then((response) => response.json());
 
   try {
     function blogRender(blogArray) {
