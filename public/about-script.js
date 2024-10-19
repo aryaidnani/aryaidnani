@@ -224,6 +224,12 @@ const blogs = [
     dateStr: `18<sup>th</sup> October '24`,
     content: `<p>So I tried tackling deployment again and I seem to have made progress. I still haven't figured it out but I might have found the problem. So bascially my backend file isn't being run at all which renders all my code and efforts moot. After a lot of permutation and combination and several commits to production this error became evident to me and then the reasons became clear. One of the reasons is the structuring of code files in separate folders. Vercel prefers backend code in an "api" folder, and frontend code in some other folder and package.json files in the root directory. With all this fixed I ran into another issue. For some reason I wasn't able to push my changes, specifically because of the package.json file. So even though everything is theoretically correct, this hiccup in pushing my code fully is what's holding me back. It is because of something I have overlooked but I can't wait to fix this for good and deploy my fullstack appplication!</p>`,
   },
+
+  {
+    id: 38,
+    dateStr: `19<sup>th</sup> October '24`,
+    content: `<p>A decent day. I drove a lot today, all over chembur and then all the way to marine drive and it was pretty fun. I even tried solving the deployment issue but that didn't work out for some reason. This took my entire day, trying all sorts of permutations and combinations to make deployment work. For some reason my backend file wont run at all, more than a code issue it seems like a vercel issue. I'll stop giving the issue more of my coding time and spend that time trying to learn something new. So all in all I'm happy with how the day went and hopefully I'll keep this issue aside now.</p>`,
+  },
 ];
 
 /* ********************************************************** */
