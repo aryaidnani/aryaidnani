@@ -4,7 +4,15 @@ const { blogModel } = require("../db");
 const mongoose = require("mongoose");
 require("dotenv").config();
 
-mongoose.connect(process.env.MONGODB_KEY);
+(async function connectDB() {
+  try {
+    console.log(`awaiting`);
+    await mongoose.connect(process.env.MONGODB_KEY);
+    console.log(`connected`);
+  } catch (error) {
+    console.log(`Failed with: ${error}`);
+  }
+})();
 
 const app = express();
 app.use(cors());
@@ -38,5 +46,5 @@ app.get("/blogData", async (req, res) => {
   res.json(allBlogs);
 });
 
-// app.listen(443);
-module.exports = app;
+app.listen(443);
+// module.exports = app;
