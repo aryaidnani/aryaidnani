@@ -46,5 +46,5 @@ app.get("/blogData", async (req, res) => {
   res.json(allBlogs);
 });
 
-app.listen(443);
-// module.exports = app;
+// app.listen(443);
+module.exports = app;
