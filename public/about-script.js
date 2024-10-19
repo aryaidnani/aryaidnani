@@ -237,7 +237,7 @@ async function fetchBlogs() {
 
   // const blogs = (await axios.get("https://aryaidnani.in/api/blogData")).data;
 
-  const blogs = await fetch("https://aryaidnani.in/api/blogData", {
+  const blogs = await fetch("/api/blogData", {
     method: "GET",
     headers: {
       "Content-Type": "application/json",
