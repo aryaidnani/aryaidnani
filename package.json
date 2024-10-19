@@ -2,11 +2,11 @@
   "name": "aryaidnani",
   "version": "1.0.0",
   "description": "<!-- **aryaidnani/aryaidnani** is a ✨ _special_ ✨ repository because its `README.md` (this file) appears on your GitHub profile.",
-  "main": "backend.js",
+  "main": "api/backend.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "vercel-build": "npm install",
-    "start": "node backend.js"
+    "start": "node api/backend.js"
   },
   "keywords": [],
   "author": "",

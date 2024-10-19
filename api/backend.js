@@ -1,6 +1,6 @@
 const cors = require("cors");
 const express = require("express");
-const { blogModel } = require("./db");
+const { blogModel } = require("../db");
 const mongoose = require("mongoose");
 require("dotenv").config();
 
