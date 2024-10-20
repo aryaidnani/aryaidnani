@@ -16,7 +16,7 @@ app.use(cors());
 
 app.use(express.json());
 
-app.post("/blog-post", async (req, res) => {
+app.post("/api/blog-post", async (req, res) => {
   const id = req.body.id;
   const dateStr = req.body.dateStr;
   const content = req.body.content;
