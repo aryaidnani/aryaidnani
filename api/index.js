@@ -6,18 +6,10 @@ require("dotenv").config();
 
 const key = process.env.MONGODB_KEY;
 
-(async function connectDB() {
-  try {
-    console.log(`awaiting`);
-    await mongoose.connect(key, {
-      useNewUrlParser: true,
-      useUnifiedTopology: true,
-    });
-    console.log(`connected`);
-  } catch (error) {
-    console.log(`Failed with: ${error}`);
-  }
-})();
+mongoose.connect(key, {
+  useNewUrlParser: true,
+  useUnifiedTopology: true,
+});
 
 const app = express();
 app.use(cors());
