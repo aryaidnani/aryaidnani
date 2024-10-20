@@ -235,23 +235,20 @@
 /* ********************************************************** */
 
 let blogsdb;
-import app from "../api/index";
 
 //Rendering Function to implement dynamic doms
 
 async function fetchBlogs() {
   //  DB Fetching
 
-  // const blogs = (await axios.get("https://aryaidnani.in/api/blogData")).data;
+  const blogs = (await axios.get("https://aryaidnani.in/api/blogData")).data;
 
-  const blogs = await app
-    .fetch("/api/blogData", {
-      method: "GET",
-      headers: {
-        "Content-Type": "application/json",
-      },
-    })
-    .then((response) => response.json());
+  // const blogs = await fetch("/api/blogData", {
+  //   method: "GET",
+  //   headers: {
+  //     "Content-Type": "application/json",
+  //   },
+  // }).then((response) => response.json());
 
   // const blogs = (await axios.get("http://localhost:443/api/blogData")).data;
 
