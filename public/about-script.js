@@ -243,6 +243,8 @@ async function fetchBlogs() {
 
   const blogs = (await axios.get("https://aryaidnani.in/api/blogData")).data;
 
+  console.log(blogs);
+
   // const blogs = await fetch("/api/blogData", {
   //   method: "GET",
   //   headers: {
