@@ -1,13 +1,18 @@
 const cors = require("cors");
 const express = require("express");
-const { blogModel } = require("../db");
+const { blogModel } = require("./db");
 const mongoose = require("mongoose");
 require("dotenv").config();
+
+const key = process.env.MONGODB_KEY;
 
 (async function connectDB() {
   try {
     console.log(`awaiting`);
-    await mongoose.connect(process.env.MONGODB_KEY);
+    await mongoose.connect(key, {
+      useNewUrlParser: true,
+      useUnifiedTopology: true,
+    });
     console.log(`connected`);
   } catch (error) {
     console.log(`Failed with: ${error}`);
@@ -36,7 +41,7 @@ app.post("/blog-post", async (req, res) => {
   });
 });
 
-app.get("/blogData", async (req, res) => {
+app.get("/api/blogData", async (req, res) => {
   console.log(`running 1`);
 
   const allBlogs = await blogModel.find();
