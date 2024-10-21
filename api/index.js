@@ -16,9 +16,38 @@ app.use(cors());
 
 app.use(express.json());
 
+const date = new Date();
+const months = [
+  "January",
+  "February",
+  "March",
+  "April",
+  "May",
+  "June",
+  "July",
+  "August",
+  "September",
+  "October",
+  "November",
+  "December",
+];
+
+function getOrdinalSuffix(day) {
+  if (day % 10 === 1 && day % 100 !== 11) return "st";
+  if (day % 10 === 2 && day % 100 !== 12) return "nd";
+  if (day % 10 === 3 && day % 100 !== 13) return "rd";
+  return "th";
+}
+
+const dateString = `${date.getDate()}<sup>${getOrdinalSuffix(
+  date.getDate()
+)}</sup> ${months[date.getMonth()]} '${String(date.getFullYear()).slice(2)}`;
+
+console.log(dateString);
+
 app.post("/api/blog-post", async (req, res) => {
   const id = req.body.id;
-  const dateStr = req.body.dateStr;
+  const dateStr = dateString;
   const content = req.body.content;
 
   const newBlog = await blogModel.create({
