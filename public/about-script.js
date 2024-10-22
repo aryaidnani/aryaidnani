@@ -241,9 +241,19 @@ let blogsdb;
 async function fetchBlogs() {
   //  DB Fetching
 
-  const blogs = (await axios.get("https://aryaidnani.in/api/blogData")).data;
+  const blogs = await axios
+    .get("https://aryaidnani.in/api/blogData")
+    .then((reponse) => {
+      document.querySelector(".lds-ripple").classList.toggle("hidden");
+      return reponse.data;
+    })
+    .catch((error) => {
+      console.log(error);
+    });
 
-  console.log(blogs);
+  if (!blogs) {
+    return;
+  }
 
   // const blogs = await fetch("/api/blogData", {
   //   method: "GET",
