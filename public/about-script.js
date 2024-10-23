@@ -425,11 +425,33 @@ function pageLoad() {
   }
 }
 
+// document.querySelector(".screen-theme").addEventListener("click", () => {
+//   document.querySelector(".moon-icon").classList.toggle("hidden");
+//   document.querySelector(".sun-icon").classList.toggle("hidden");
+//   document.querySelector("body").classList.toggle("dark");
+//   document.querySelector("body").classList.toggle("light");
+// });
+
+function applyTheme(theme) {
+  if (theme === "dark") {
+    document.body.classList.add("dark");
+    document.body.classList.remove("light");
+  } else if (theme === "light") {
+    document.body.classList.add("light");
+    document.body.classList.remove("dark");
+  }
+}
+
+const storedTheme = localStorage.getItem("theme") || "dark";
+applyTheme(storedTheme);
+
 document.querySelector(".screen-theme").addEventListener("click", () => {
   document.querySelector(".moon-icon").classList.toggle("hidden");
   document.querySelector(".sun-icon").classList.toggle("hidden");
-  document.querySelector("body").classList.toggle("dark");
-  document.querySelector("body").classList.toggle("light");
+
+  const newTheme = document.body.classList.contains("dark") ? "light" : "dark";
+  localStorage.setItem("theme", newTheme);
+  applyTheme(newTheme);
 });
 
 let blogContent = document.querySelector(".blog-content");
