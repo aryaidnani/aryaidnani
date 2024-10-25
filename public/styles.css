@@ -437,6 +437,16 @@ strong {
   border-radius: 20%;
   letter-spacing: 0.5rem;
   border: none;
+
+  background-color: #3f3f3f;
+  color: rgba(255, 255, 255, 0.512);
+  transition: 0.6s ease;
+}
+
+.postBtn:hover {
+  background-color: #2b2b2b;
+  color: white;
+  transition: 0.6s ease;
 }
 
 .postArea {
