@@ -45,8 +45,8 @@ const dateString = `${date.getDate()}<sup>${getOrdinalSuffix(
 
 console.log(dateString);
 
-app.post("/api/blog-post", async (req, res) => {
-  const id = req.body.id;
+app.post("/api/blogPost", async (req, res) => {
+  const id = (await blogModel.find()).length + 1;
   const dateStr = dateString;
   const content = req.body.content;
 
