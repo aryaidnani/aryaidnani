@@ -1,3 +1,28 @@
+(function render() {
+  const blogPost = document.querySelector(".blogPost");
+  blogPost.innerHTML = "";
+
+  const postNum = document.createElement("h1");
+  // postNum.innerHTML = `DAY ${dataLength}`;
+  postNum.className = "postNum";
+  blogPost.append(postNum);
+
+  const postEls = document.createElement("div");
+  postEls.className = "postEls";
+
+  blogPost.append(postEls);
+
+  const postArea = document.createElement("textarea");
+  postArea.className = "postArea";
+  postArea.placeholder = "Type Your Blog...";
+  postEls.append(postArea);
+
+  const postBtn = document.createElement("button");
+  postBtn.className = "postBtn";
+  postBtn.textContent = "POST";
+  postEls.append(postBtn);
+})();
+
 const dataLength = axios
   .get("https://aryaidnani.in/api/blogData")
   .then((response) => {
