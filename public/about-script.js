@@ -255,22 +255,6 @@ async function fetchBlogs() {
     return;
   }
 
-  // const blogs = await fetch("/api/blogData", {
-  //   method: "GET",
-  //   headers: {
-  //     "Content-Type": "application/json",
-  //   },
-  // }).then((response) => response.json());
-
-  // const blogs = (await axios.get("http://localhost:443/api/blogData")).data;
-
-  // const blogs = await fetch("http://localhost:443/blogData", {
-  //   method: "GET",
-  //   headers: {
-  //     "Content-Type": "application/json",
-  //   },
-  // }).then((response) => response.json());
-
   try {
     function blogRender(blogArray) {
       const accordionContainer = document.querySelector(".accordion");
@@ -369,34 +353,6 @@ async function fetchBlogs() {
 
 fetchBlogs();
 
-// function blogSort(order = "latest") {
-//   blogsdb.sort((a, b) => {
-//     if (order === "latest") {
-//       return b.id - a.id;
-//     } else if (order === "oldest") {
-//       return a.id - b.id;
-//     }
-//   });
-// }
-
-// // blogRender(blogAction); //Rendering
-// blogSort("latest"); //Initial Sorting
-
-// const sortBtn = document.querySelector(".sort-btn");
-
-// sortBtn.addEventListener("click", () => {
-//   sortBtn.classList.toggle("oldest");
-//   sortBtn.classList.toggle("latest");
-
-//   if (!sortBtn.classList.contains("latest")) {
-//     sortBtn.textContent = "Oldest";
-//     blogSort("oldest");
-//   } else if (!sortBtn.classList.contains("oldest")) {
-//     sortBtn.textContent = "Latest";
-//     blogSort("latest");
-//   }
-// });
-
 //Accordion Functionality
 
 function pageLoad() {
@@ -424,13 +380,6 @@ function pageLoad() {
     });
   }
 }
-
-// document.querySelector(".screen-theme").addEventListener("click", () => {
-//   document.querySelector(".moon-icon").classList.toggle("hidden");
-//   document.querySelector(".sun-icon").classList.toggle("hidden");
-//   document.querySelector("body").classList.toggle("dark");
-//   document.querySelector("body").classList.toggle("light");
-// });
 
 function applyTheme(theme) {
   if (theme === "dark") {
