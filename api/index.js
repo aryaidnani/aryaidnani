@@ -2,6 +2,8 @@ const cors = require("cors");
 const express = require("express");
 const { blogModel } = require("./db");
 const mongoose = require("mongoose");
+const jwt = require("jsonwebtoken");
+const JWT_SECRET = `${process.env.JWT_SECRET}`;
 require("dotenv").config();
 
 const key = process.env.MONGODB_KEY;
@@ -71,6 +73,38 @@ app.get("/api/blogData", async (req, res) => {
 
   res.json(allBlogs);
 });
+
+//Auth Backend
+
+// const signInMiddleware = async (req, res, next) => {
+//   const dbPass = await userModel.findOne();
+//   if (dbPass.token === req.headers.token) {
+//     console.log(`existing`);
+//     next(res.json({ message: "verified" }));
+//   } else {
+//     const passwordEntered = req.body.password;
+
+//     const verification = await bcrypt.compare(
+//       passwordEntered,
+//       String(dbPass.password)
+//     );
+
+//     if (verification) {
+//       const newToken = jwt.sign({ message: `${JWT_SECRET}` }, JWT_SECRET);
+//       await userModel.findOneAndUpdate({ token: newToken });
+//       console.log(`new`);
+//       next(res.json({ message: "Success", token: newToken }));
+//     } else {
+//       res.json({ message: "Verification Failed" });
+//     }
+//   }
+// };
+
+// // signInMiddleware();
+
+// app.post("/", signInMiddleware, (req, res) => {
+//   res.json({ message: "Welcome" });
+// });
 
 app.listen(443);
 module.exports = app;

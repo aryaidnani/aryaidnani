@@ -7,9 +7,15 @@ const blogPost = new Schema({
   dateStr: String,
   content: String,
 });
+const userDetails = new Schema({
+  password: String,
+  token: String,
+});
 
 const blogModel = mongoose.model("blogs", blogPost);
+const userModel = mongoose.model("userDetails", userDetails);
 
 module.exports = {
   blogModel,
+  userModel,
 };
