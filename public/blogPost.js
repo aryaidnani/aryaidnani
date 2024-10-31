@@ -1,6 +1,5 @@
 //Rendering Function
-
-(function render() {
+function render() {
   const blogPost = document.querySelector(".blogPost");
   blogPost.innerHTML = "";
 
@@ -36,7 +35,7 @@
   document.querySelector(".postBtn").addEventListener("click", async () => {
     const contentEl = `<p>${document.querySelector(".postArea").value}</p>`;
 
-    await fetch("http://localhost:443/api/blogPost", {
+    await fetch("https://aryaidnani.in/api/blogPost", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -49,46 +48,46 @@
         console.log(err);
       });
   });
-})();
+}
+
+const authText = document.querySelector(".authText");
+const authBtn = document.querySelector(".vbutton");
+const authModal = document.querySelector(".authModal");
 
 //Auth FE
 
-// const authText = document.querySelector(".authText");
-// const authBtn = document.querySelector(".vbutton");
-// const authModal = document.querySelector(".authModal");
+(async function pageEnter() {
+  const response = await fetch("https://aryaidnani.in/api/post", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+      token: localStorage.getItem("token"),
+    },
+    body: JSON.stringify({ password: "1234" }),
+  });
 
-// (async function render() {
-//   const response = await fetch("http://localhost:443/", {
-//     method: "POST",
-//     headers: {
-//       "Content-Type": "application/json",
-//       token: localStorage.getItem("token"),
-//     },
-//     body: JSON.stringify({ password: "1234" }),
-//   });
+  const messageEl = await response.json();
 
-//   const messageEl = await response.json();
+  if (messageEl.message === "verified") {
+    render();
+  }
+})();
 
-//   if (messageEl.message === "verified") {
-//     authModal.classList.toggle("hidden");
-//   }
-// })();
+authBtn.addEventListener("click", async () => {
+  const attemptPass = authText.value;
 
-// authBtn.addEventListener("click", async () => {
-//   const attemptPass = authText.value;
+  const response = await fetch("https://aryaidnani.in/api/post", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+      token: localStorage.getItem("token"),
+    },
+    body: JSON.stringify({ password: attemptPass }),
+  });
 
-//   const response = await fetch("http://localhost:443/", {
-//     method: "POST",
-//     headers: {
-//       "Content-Type": "application/json",
-//       token: localStorage.getItem("token"),
-//     },
-//     body: JSON.stringify({ password: attemptPass }),
-//   });
-
-//   const data = await response.json();
-//   localStorage.setItem("token", data.token);
-//   if (data.message === "Success") {
-//     authModal.classList.toggle("hidden");
-//   }
-// });
+  const data = await response.json();
+  localStorage.setItem("token", data.token);
+  if (data.message === "Success") {
+    render();
+  }
+});
