@@ -76,23 +76,3 @@ document.querySelector(".screen-theme").addEventListener("click", () => {
   localStorage.setItem("theme", newTheme);
   applyTheme(newTheme);
 });
-
-// let categories = ["intelligence", "knowledge", "success"];
-
-// let category = `${categories[Math.trunc(Math.random() * 2)]}`;
-// console.log(category);
-
-// $.ajax({
-//   method: "GET",
-//   url: "https://api.api-ninjas.com/v1/quotes?category=" + category,
-//   headers: { "X-Api-Key": process.env.SECRET_KEY },
-//   contentType: "application/json",
-//   success: function (result) {
-//     let [quoteObj] = result;
-//     document.querySelector(".quote-content").textContent = quoteObj.quote;
-//     document.querySelector(".quote-author").textContent = `-${quoteObj.author}`;
-//   },
-//   error: function ajaxError(jqXHR) {
-//     console.error("Error: ", jqXHR.responseText);
-//   },
-// });
