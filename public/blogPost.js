@@ -1,12 +1,39 @@
 //Rendering Function
+
+let storedTheme = localStorage.getItem("theme") || "dark";
+
+function applyTheme(theme) {
+  if (theme === "dark") {
+    document.body.classList.add("dark");
+    document.body.classList.remove("light");
+
+    document.querySelector(".moon-icon").classList.add("hidden");
+    document.querySelector(".sun-icon").classList.remove("hidden");
+  } else if (theme === "light") {
+    document.body.classList.add("light");
+    document.body.classList.remove("dark");
+    document.querySelector(".moon-icon").classList.remove("hidden");
+    document.querySelector(".sun-icon").classList.add("hidden");
+  }
+}
+
 function render() {
   const blogPost = document.querySelector(".blogPost");
   blogPost.innerHTML = "";
 
   const postNum = document.createElement("h1");
-  // postNum.innerHTML = `DAY ${dataLength}`;
   postNum.className = "postNum";
   blogPost.append(postNum);
+
+  const logoutBtn = document.createElement("button");
+  logoutBtn.className = "logout postBtn";
+  logoutBtn.textContent = "LOG-OUT";
+  blogPost.append(logoutBtn);
+
+  logoutBtn.addEventListener("click", (e) => {
+    location.reload();
+    localStorage.setItem("token", "logged-out");
+  });
 
   const postEls = document.createElement("div");
   postEls.className = "postEls";
@@ -46,7 +73,7 @@ function render() {
         viewBox="0 0 24 24"
         stroke-width="1.5"
         stroke="currentColor"
-        class="moon-icon hidden"
+        class="moon-icon"
       >
         <path
           stroke-linecap="round"
@@ -57,17 +84,6 @@ function render() {
 
   blogPost.append(screenTheme);
 
-  document.querySelector(".screen-theme").addEventListener("click", () => {
-    document.querySelector(".moon-icon").classList.toggle("hidden");
-    document.querySelector(".sun-icon").classList.toggle("hidden");
-
-    const newTheme = document.body.classList.contains("dark")
-      ? "light"
-      : "dark";
-    localStorage.setItem("theme", newTheme);
-    applyTheme(newTheme);
-  });
-
   axios
     .get("https://aryaidnani.in/api/blogData")
     .then((response) => {
@@ -77,7 +93,7 @@ function render() {
     })
     .catch((err) => console.log(err));
 
-  document.querySelector(".postBtn").addEventListener("click", async () => {
+  postBtn.addEventListener("click", async () => {
     const contentEl = `<p>${document.querySelector(".postArea").value}</p>`;
 
     await fetch("https://aryaidnani.in/api/blogPost", {
@@ -92,6 +108,20 @@ function render() {
         alert(`Error\n${err}`);
         console.log(err);
       });
+  });
+
+  storedTheme = localStorage.getItem("theme") || "dark";
+  applyTheme(storedTheme);
+
+  document.querySelector(".screen-theme").addEventListener("click", (e) => {
+    document.querySelector(".moon-icon").classList.toggle("hidden");
+    document.querySelector(".sun-icon").classList.toggle("hidden");
+
+    const newTheme = document.body.classList.contains("dark")
+      ? "light"
+      : "dark";
+    localStorage.setItem("theme", newTheme);
+    applyTheme(newTheme);
   });
 }
 
@@ -134,18 +164,15 @@ authBtn.addEventListener("click", async () => {
   localStorage.setItem("token", data.token);
   if (data.message === "Success") {
     render();
+  } else {
+    alert("Incorrect password");
   }
 });
 
-function applyTheme(theme) {
-  if (theme === "dark") {
-    document.body.classList.add("dark");
-    document.body.classList.remove("light");
-  } else if (theme === "light") {
-    document.body.classList.add("light");
-    document.body.classList.remove("dark");
-  }
-}
-
-const storedTheme = localStorage.getItem("theme") || "dark";
 applyTheme(storedTheme);
+
+document.querySelector(".screen-theme").addEventListener("click", (e) => {
+  const newTheme = document.body.classList.contains("dark") ? "light" : "dark";
+  localStorage.setItem("theme", newTheme);
+  applyTheme(newTheme);
+});

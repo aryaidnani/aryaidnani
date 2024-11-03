@@ -387,6 +387,12 @@ sup {
   transition: 0.6s ease;
 }
 
+.logout {
+  position: absolute;
+  top: 2.5%;
+  right: 0;
+}
+
 .postBtn:hover {
   background-color: light-dark(#edf2ff, #2b2b2b);
   transition: 0.6s ease;
@@ -405,7 +411,7 @@ sup {
   height: 75%;
   flex-direction: column;
   background-color: light-dark(#edf2ff, #2b2b2b);
-  border: 1px solid #c2c2c231;
+  border: 1px solid light-dark(#3b5bdb3a, #c2c2c231);
   outline: none !important;
   caret-color: light-dark(#3b5bdb, #c2c2c231);
 
@@ -430,23 +436,27 @@ sup {
   align-self: center;
   width: 22rem;
   font-size: 1.8rem;
-  background-color: #2b2b2b;
+  background-color: light-dark(#edf2ff, #2b2b2b);
   border: none;
-  border-bottom: 2px rgba(255, 255, 255, 0.545) solid;
+  border-bottom: 2px light-dark(#3b5bdbc0, rgba(255, 255, 255, 0.545)) solid;
   outline: none !important;
-  color: rgba(255, 255, 255, 0.82);
+  color: light-dark(#3b5bdb, white);
+  caret-color: light-dark(#3b5bdb, #c2c2c231);
   letter-spacing: 0.3rem;
+}
+
+::placeholder {
+  color: light-dark(#3b5bdb7a, #c2c2c231);
 }
 
 .vbutton {
   align-self: center;
   width: 30rem;
   font-size: 1.8rem;
-  background-color: #2b2b2b;
-  color: white;
+  background-color: light-dark(#edf2ff, #2b2b2b);
+  color: light-dark(#3b5bdb, white);
   border: none;
   cursor: pointer;
-  transition: 0.5s ease;
 }
 
 /* ********************************************************** */
