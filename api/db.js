@@ -13,9 +13,11 @@ const userDetails = new Schema({
 });
 
 const blogModel = mongoose.model("blogs", blogPost);
+const blogModel2 = mongoose.model("blogs2", blogPost);
 const userModel = mongoose.model("userDetails", userDetails);
 
 module.exports = {
   blogModel,
+  blogModel2,
   userModel,
 };

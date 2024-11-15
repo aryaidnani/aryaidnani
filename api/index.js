@@ -1,6 +1,7 @@
 const cors = require("cors");
 const express = require("express");
 const { blogModel } = require("./db");
+const { blogModel2 } = require("./db");
 const { userModel } = require("./db");
 const mongoose = require("mongoose");
 const jwt = require("jsonwebtoken");
@@ -11,10 +12,7 @@ require("dotenv").config();
 
 const key = process.env.MONGODB_KEY;
 
-mongoose.connect(key, {
-  useNewUrlParser: true,
-  useUnifiedTopology: true,
-});
+mongoose.connect(key);
 
 const app = express();
 app.use(cors());
@@ -55,6 +53,21 @@ app.post("/api/blogPost", async (req, res) => {
   const dateStr = dateString;
   const content = req.body.content;
 
+  //Bulk Seeding
+
+  // await blogs.forEach(async (el) => {
+  //   const id = el.id;
+  //   const dateStr = el.dateStr;
+  //   const content = el.content;
+
+  //   const newBlog = await blogModel2.create({
+  //     id: id,
+  //     dateStr: dateStr,
+  //     content: content,
+  //   });
+  // });
+  // ***************************************************************
+
   const newBlog = await blogModel.create({
     id: id,
     dateStr: dateStr,
@@ -67,39 +80,68 @@ app.post("/api/blogPost", async (req, res) => {
   });
 });
 
-app.get("/api/blogData", async (req, res) => {
+app.get("/api/new", async (req, res) => {
   console.log(`running 1`);
 
-  const allBlogs = await blogModel.find();
-
+  const allBlogs = await blogModel.find(); //Latest blogs
   console.log(`running 2`);
 
   res.json(allBlogs);
 });
 
+app.get("/api/old", async (req, res) => {
+  console.log(`running 1`);
+
+  const allBlogs2 = await blogModel2.find(); //Old blogs
+  console.log(`running 2`);
+
+  res.json(allBlogs2);
+});
+
 // Auth Backend
 
 const signInMiddleware = async (req, res, next) => {
-  const dbPass = await userModel.findOne();
-  if (dbPass.token === req.headers.token) {
-    console.log(`existing`);
+  // const dbPass = await userModel.findOne();
+  // if (dbPass.token === req.headers.token) {
+  //   console.log(`existing`);
+  //   next(res.json({ message: "verified" }));
+  // } else {
+  // const passwordEntered = req.body.password;
+
+  // const verification = await bcrypt.compare(
+  //   passwordEntered,
+  //   String(dbPass.password)
+  // );
+
+  // if (verification) {
+  //   const newToken = jwt.sign({ message: `${JWT_SECRET}` }, JWT_SECRET);
+  //   await userModel.findOneAndUpdate({ token: newToken });
+  //   console.log(`new`);
+  //   next(res.json({ message: "Success", token: newToken }));
+  // } else {
+  //   res.json({ message: "Verification Failed" });
+  // }
+  // }
+
+  jwt.verify(req.headers.token, process.env.JWT_SECRET, (err, decoded) => {
+    console.log(`existing ${decoded.message}`);
     next(res.json({ message: "verified" }));
+  });
+
+  const passwordEntered = req.body.password;
+
+  const verification = await bcrypt.compare(
+    passwordEntered,
+    String(dbPass.password)
+  );
+
+  if (verification) {
+    const newToken = jwt.sign({ message: `${JWT_SECRET}` }, JWT_SECRET);
+    await userModel.findOneAndUpdate({ token: newToken });
+    console.log(`new`);
+    next(res.json({ message: "Success", token: newToken }));
   } else {
-    const passwordEntered = req.body.password;
-
-    const verification = await bcrypt.compare(
-      passwordEntered,
-      String(dbPass.password)
-    );
-
-    if (verification) {
-      const newToken = jwt.sign({ message: `${JWT_SECRET}` }, JWT_SECRET);
-      await userModel.findOneAndUpdate({ token: newToken });
-      console.log(`new`);
-      next(res.json({ message: "Success", token: newToken }));
-    } else {
-      res.json({ message: "Verification Failed" });
-    }
+    res.json({ message: "Verification Failed" });
   }
 };
 
@@ -110,4 +152,4 @@ app.post("/api/post", signInMiddleware, (req, res) => {
 });
 
 app.listen(443);
-module.exports = app;
+// module.exports = app;
