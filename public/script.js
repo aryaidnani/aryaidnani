@@ -9,8 +9,8 @@ if (currentDate > targetDate) {
 
 const daysLeft = Math.ceil((targetDate - currentDate) / (1000 * 60 * 60 * 24));
 
-document.querySelector(".days").innerHTML =
-  daysLeft + " day(s) until December 20<sup>th</sup>";
+// document.querySelector(".days").innerHTML =
+//   daysLeft + " day(s) until December 20<sup>th</sup>";
 
 function webTime() {
   currentDate = new Date();
@@ -43,17 +43,17 @@ function webTime() {
 
 setInterval(webTime, 1000);
 
-document.querySelector(".container").addEventListener("mouseenter", () => {
-  document.querySelector(".days").classList.toggle("hidden");
-  document.querySelector(".detailed").classList.toggle("hidden");
-  progressItem.classList.toggle("hidden");
-});
+// document.querySelector(".container").addEventListener("mouseenter", () => {
+//   document.querySelector(".days").classList.toggle("hidden");
+//   document.querySelector(".detailed").classList.toggle("hidden");
+//   progressItem.classList.toggle("hidden");
+// });
 
-document.querySelector(".container").addEventListener("mouseleave", () => {
-  document.querySelector(".days").classList.toggle("hidden");
-  document.querySelector(".detailed").classList.toggle("hidden");
-  progressItem.classList.toggle("hidden");
-});
+// document.querySelector(".container").addEventListener("mouseleave", () => {
+//   document.querySelector(".days").classList.toggle("hidden");
+//   document.querySelector(".detailed").classList.toggle("hidden");
+//   progressItem.classList.toggle("hidden");
+// });
 
 // function applyTheme(theme) {
 //   if (theme === "dark") {

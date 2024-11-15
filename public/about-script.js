@@ -66,10 +66,8 @@ function blogRender(blogArray) {
 async function fetchBlogs(blogSet) {
   //  DB Fetching
 
-  document.querySelector(".lds-ripple").classList.toggle("hidden");
-
   blogs = await axios
-    .get(`http://localhost:443/api/${blogSet}`)
+    .get(`https://aryaidnani.in/api/${blogSet}`)
     .then((reponse) => {
       if (!document.querySelector(".lds-ripple").classList.contains("hidden")) {
         document.querySelector(".lds-ripple").classList.toggle("hidden");
