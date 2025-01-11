@@ -123,32 +123,32 @@ const signInMiddleware = async (req, res, next) => {
   // }
   // }
 
-  try {
-    jwt.verify(req.headers.token, process.env.JWT_SECRET, (err, decoded) => {
+  jwt.verify(
+    req.headers.token,
+    process.env.JWT_SECRET,
+    async (err, decoded) => {
       try {
         console.log(`existing ${decoded.message}`);
         next(res.json({ message: "verified" }));
       } catch {
-        console.log(err);
+        const passwordEntered = req.body.password;
+
+        const verification = await bcrypt.compare(
+          passwordEntered,
+          String(dbPass.password)
+        );
+
+        if (verification) {
+          const newToken = jwt.sign({ message: `${JWT_SECRET}` }, JWT_SECRET);
+          await userModel.findOneAndUpdate({ token: newToken });
+          console.log(`new`);
+          next(res.json({ message: "Success", token: newToken }));
+        } else {
+          res.json({ message: "Verification Failed" });
+        }
       }
-    });
-  } catch {
-    const passwordEntered = req.body.password;
-
-    const verification = await bcrypt.compare(
-      passwordEntered,
-      String(dbPass.password)
-    );
-
-    if (verification) {
-      const newToken = jwt.sign({ message: `${JWT_SECRET}` }, JWT_SECRET);
-      await userModel.findOneAndUpdate({ token: newToken });
-      console.log(`new`);
-      next(res.json({ message: "Success", token: newToken }));
-    } else {
-      res.json({ message: "Verification Failed" });
     }
-  }
+  );
 };
 
 app.post("/api/post", signInMiddleware, (req, res) => {
