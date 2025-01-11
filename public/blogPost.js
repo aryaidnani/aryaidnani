@@ -161,8 +161,9 @@ authBtn.addEventListener("click", async () => {
   });
 
   const data = await response.json();
-  localStorage.setItem("token", data.token);
   if (data.message === "Success") {
+    localStorage.setItem("token", data.token);
+    console.log(data.token);
     render();
   } else {
     alert("Incorrect password");
