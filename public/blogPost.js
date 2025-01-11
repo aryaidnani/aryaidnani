@@ -85,7 +85,7 @@ function render() {
   blogPost.append(screenTheme);
 
   axios
-    .get("https://aryaidnani.in/api/blogData")
+    .get("https://aryaidnani.in/api/new")
     .then((response) => {
       document.querySelector(".postNum").textContent = `DAY ${
         response.data.length + 1
