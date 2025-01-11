@@ -124,8 +124,12 @@ const signInMiddleware = async (req, res, next) => {
   // }
 
   jwt.verify(req.headers.token, process.env.JWT_SECRET, (err, decoded) => {
-    console.log(`existing ${decoded.message}`);
-    next(res.json({ message: "verified" }));
+    try {
+      console.log(`existing ${decoded.message}`);
+      next(res.json({ message: "verified" }));
+    } catch {
+      console.log(err);
+    }
   });
 
   const passwordEntered = req.body.password;
