@@ -48,7 +48,7 @@ const dateString = `${date.getDate()}<sup>${getOrdinalSuffix(
 
 console.log(dateString);
 
-app.post("/api/blogPost", async (req, res) => {
+app.post("/api/blogPost/New", async (req, res) => {
   const id = (await blogModel.find()).length + 1;
   const dateStr = dateString;
   const content = req.body.content;
@@ -69,6 +69,23 @@ app.post("/api/blogPost", async (req, res) => {
   // ***************************************************************
 
   const newBlog = await blogModel.create({
+    id: id,
+    dateStr: dateStr,
+    content: content,
+  });
+
+  res.json({
+    message: "Success",
+    newBlog,
+  });
+});
+
+app.post("/api/blogPost/Old", async (req, res) => {
+  const id = (await blogModel2.find()).length + 1;
+  const dateStr = dateString;
+  const content = req.body.content;
+
+  const newBlog = await blogModel2.create({
     id: id,
     dateStr: dateStr,
     content: content,

@@ -102,7 +102,7 @@ function render() {
   postBtn.addEventListener("click", async () => {
     const contentEl = `<p>${document.querySelector(".postArea").value}</p>`;
 
-    await fetch(`https://aryaidnani.in/api/${blogType}`, {
+    await fetch(`https://aryaidnani.in/api/blogPost/${blogType}`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
