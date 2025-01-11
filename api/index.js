@@ -81,19 +81,13 @@ app.post("/api/blogPost", async (req, res) => {
 });
 
 app.get("/api/new", async (req, res) => {
-  console.log(`running 1`);
-
   const allBlogs = await blogModel.find(); //Latest blogs
-  console.log(`running 2`);
 
   res.json(allBlogs);
 });
 
 app.get("/api/old", async (req, res) => {
-  console.log(`running 1`);
-
   const allBlogs2 = await blogModel2.find(); //Old blogs
-  console.log(`running 2`);
 
   res.json(allBlogs2);
 });
@@ -140,7 +134,6 @@ const signInMiddleware = async (req, res, next) => {
 
         if (verification) {
           const newToken = jwt.sign({ message: `${JWT_SECRET}` }, JWT_SECRET);
-          await userModel.findOneAndUpdate({ token: newToken });
           console.log(`new`);
           next(res.json({ message: "Success", token: newToken }));
         } else {

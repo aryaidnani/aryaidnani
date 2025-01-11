@@ -1,6 +1,7 @@
 //Rendering Function
 
 let storedTheme = localStorage.getItem("theme") || "dark";
+let blogType = localStorage.getItem("blogType") || "New";
 
 function applyTheme(theme) {
   if (theme === "dark") {
@@ -45,6 +46,11 @@ function render() {
   postArea.placeholder = "Type Your Blog...";
   postEls.append(postArea);
 
+  const typeBtn = document.createElement("text");
+  typeBtn.className = "typeBtn";
+  typeBtn.textContent = `${blogType}`;
+  postEls.append(typeBtn);
+
   const postBtn = document.createElement("button");
   postBtn.className = "postBtn";
   postBtn.textContent = "POST";
@@ -85,7 +91,7 @@ function render() {
   blogPost.append(screenTheme);
 
   axios
-    .get("https://aryaidnani.in/api/new")
+    .get(`https://aryaidnani.in/api/${blogType}`)
     .then((response) => {
       document.querySelector(".postNum").textContent = `DAY ${
         response.data.length + 1
@@ -96,7 +102,7 @@ function render() {
   postBtn.addEventListener("click", async () => {
     const contentEl = `<p>${document.querySelector(".postArea").value}</p>`;
 
-    await fetch("https://aryaidnani.in/api/blogPost", {
+    await fetch(`https://aryaidnani.in/api/${blogType}`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -122,6 +128,25 @@ function render() {
       : "dark";
     localStorage.setItem("theme", newTheme);
     applyTheme(newTheme);
+  });
+
+  typeBtn.addEventListener("click", (e) => {
+    if (blogType !== "Old") {
+      blogType = "Old";
+    } else if (blogType !== "New") {
+      blogType = "New";
+    }
+    typeBtn.textContent = `${blogType}`;
+    localStorage.setItem("blogType", blogType);
+
+    axios
+      .get(`https://aryaidnani.in/api/${blogType}`)
+      .then((response) => {
+        document.querySelector(".postNum").textContent = `DAY ${
+          response.data.length + 1
+        }`;
+      })
+      .catch((err) => console.log(err));
   });
 }
 
@@ -163,7 +188,6 @@ authBtn.addEventListener("click", async () => {
   const data = await response.json();
   if (data.message === "Success") {
     localStorage.setItem("token", data.token);
-    console.log(data.token);
     render();
   } else {
     alert("Incorrect password");
