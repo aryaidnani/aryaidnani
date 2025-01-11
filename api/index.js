@@ -149,8 +149,6 @@ const signInMiddleware = async (req, res, next) => {
   }
 };
 
-// signInMiddleware();
-
 app.post("/api/post", signInMiddleware, (req, res) => {
   res.json({ message: "Welcome" });
 });
