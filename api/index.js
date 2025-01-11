@@ -123,29 +123,31 @@ const signInMiddleware = async (req, res, next) => {
   // }
   // }
 
-  jwt.verify(req.headers.token, process.env.JWT_SECRET, (err, decoded) => {
-    try {
-      console.log(`existing ${decoded.message}`);
-      next(res.json({ message: "verified" }));
-    } catch {
-      console.log(err);
+  try {
+    jwt.verify(req.headers.token, process.env.JWT_SECRET, (err, decoded) => {
+      try {
+        console.log(`existing ${decoded.message}`);
+        next(res.json({ message: "verified" }));
+      } catch {
+        console.log(err);
+      }
+    });
+  } catch {
+    const passwordEntered = req.body.password;
+
+    const verification = await bcrypt.compare(
+      passwordEntered,
+      String(dbPass.password)
+    );
+
+    if (verification) {
+      const newToken = jwt.sign({ message: `${JWT_SECRET}` }, JWT_SECRET);
+      await userModel.findOneAndUpdate({ token: newToken });
+      console.log(`new`);
+      next(res.json({ message: "Success", token: newToken }));
+    } else {
+      res.json({ message: "Verification Failed" });
     }
-  });
-
-  const passwordEntered = req.body.password;
-
-  const verification = await bcrypt.compare(
-    passwordEntered,
-    String(dbPass.password)
-  );
-
-  if (verification) {
-    const newToken = jwt.sign({ message: `${JWT_SECRET}` }, JWT_SECRET);
-    await userModel.findOneAndUpdate({ token: newToken });
-    console.log(`new`);
-    next(res.json({ message: "Success", token: newToken }));
-  } else {
-    res.json({ message: "Verification Failed" });
   }
 };
 
