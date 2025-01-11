@@ -101,7 +101,7 @@ app.get("/api/old", async (req, res) => {
 // Auth Backend
 
 const signInMiddleware = async (req, res, next) => {
-  const dbPass = await userModel.findOne();
+  // const dbPass = await userModel.findOne();
   // if (dbPass.token === req.headers.token) {
   //   console.log(`existing`);
   //   next(res.json({ message: "verified" }));
